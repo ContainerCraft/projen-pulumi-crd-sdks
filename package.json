@@ -1,5 +1,6 @@
 {
-  "name": "projen-pulumi-crd-sdks",
+  "name": "@containercraft/projen-pulumi-crd-sdks",
+  "description": "Projen project type to generate Pulumi SDKs for Kubernetes CRDs",
   "repository": {
     "type": "git",
     "url": "https://github.com/containercraft/projen-pulumi-crd-sdks.git"
@@ -56,11 +57,12 @@
     "ts-node": "^10.9.2",
     "typescript": "^5.9.3"
   },
+  "peerDependencies": {
+    "constructs": "^10.4.4",
+    "projen": "^0.98.30"
+  },
   "main": "lib/index.js",
   "license": "Apache-2.0",
-  "publishConfig": {
-    "access": "public"
-  },
   "version": "0.0.0",
   "jest": {
     "coverageProvider": "v8",
