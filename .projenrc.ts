@@ -8,6 +8,8 @@ const project = new cdk.JsiiProject({
   packageManager: javascript.NodePackageManager.NPM,
   projenrcTs: true,
   repositoryUrl: 'https://github.com/containercraft/projen-pulumi-crd-sdks.git',
+  release: false,
+  depsUpgrade: false,
 
   packageName: '@containercraft/projen-pulumi-crd-sdks',
   description: 'Projen project type to generate Pulumi SDKs for Kubernetes CRDs',
