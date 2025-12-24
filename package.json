@@ -2,7 +2,7 @@
   "name": "projen-pulumi-crd-sdks",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ringo/projen-pulumi-crd-sdks.git"
+    "url": "https://github.com/containercraft/projen-pulumi-crd-sdks.git"
   },
   "scripts": {
     "build": "npx projen build",

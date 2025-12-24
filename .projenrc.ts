@@ -7,7 +7,7 @@ const project = new cdk.JsiiProject({
   name: 'projen-pulumi-crd-sdks',
   packageManager: javascript.NodePackageManager.NPM,
   projenrcTs: true,
-  repositoryUrl: 'https://github.com/ringo/projen-pulumi-crd-sdks.git',
+  repositoryUrl: 'https://github.com/containercraft/projen-pulumi-crd-sdks.git',
 
   // deps: [],                /* Runtime dependencies of this module. */
   // description: undefined,  /* The description is just a string that helps people understand the purpose of the package. */
