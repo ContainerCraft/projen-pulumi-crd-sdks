@@ -12,6 +12,12 @@ export class PulumiCrdSdksProject extends projen.Project {
     'github:pulumi/crd2pulumi' = '1.6.0'
     `;
 
+    new projen.License(this, {
+      spdx: 'Apache-2.0',
+      copyrightOwner: 'Containercraft.io',
+      copyrightPeriod: '2025-2026',
+    });
+
     new projen.TextFile(this, 'mise.toml', {
       lines: [contents],
     });
