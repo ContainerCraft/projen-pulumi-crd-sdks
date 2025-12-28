@@ -1,7 +1,6 @@
 import { cdk, javascript } from 'projen';
-import {
-  UpgradeDependenciesSchedule,
-} from 'projen/lib/javascript';
+import { UpgradeDependenciesSchedule, } from 'projen/lib/javascript';
+import { JobPermission } from "projen/lib/github/workflows-model";
 
 const project = new cdk.JsiiProject({
   author: 'Ringo De Smet',
@@ -28,6 +27,10 @@ const project = new cdk.JsiiProject({
     workflowOptions: {
       labels: ['auto-approve'],
       schedule: UpgradeDependenciesSchedule.WEEKLY,
+      permissions: {
+        contents: JobPermission.READ,
+        pullRequests: JobPermission.WRITE,
+      },
     },
   },
 
