@@ -1,4 +1,8 @@
 import { cdk, javascript } from 'projen';
+import {
+  UpgradeDependenciesSchedule,
+} from 'projen/lib/javascript';
+
 const project = new cdk.JsiiProject({
   author: 'Ringo De Smet',
   authorAddress: 'ringo@de-smet.name',
@@ -9,7 +13,6 @@ const project = new cdk.JsiiProject({
   projenrcTs: true,
   repositoryUrl: 'https://github.com/containercraft/projen-pulumi-crd-sdks.git',
   release: false,
-  depsUpgrade: false,
 
   packageName: '@containercraft/projen-pulumi-crd-sdks',
   description: 'Projen project type to generate Pulumi SDKs for Kubernetes CRDs',
@@ -20,6 +23,14 @@ const project = new cdk.JsiiProject({
   devDeps: ['@jsii/spec'],
   /* Peer dependencies for this module. */
   peerDeps: ['constructs', 'projen'],
+
+  depsUpgradeOptions: {
+    workflowOptions: {
+      labels: ['auto-approve'],
+      schedule: UpgradeDependenciesSchedule.WEEKLY,
+    },
+  },
+
 });
 
 project.synth();
