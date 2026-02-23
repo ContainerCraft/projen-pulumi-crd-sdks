@@ -1,6 +1,6 @@
 import { cdk, javascript } from 'projen';
-import { UpgradeDependenciesSchedule, } from 'projen/lib/javascript';
-import { JobPermission } from "projen/lib/github/workflows-model";
+import { JobPermission } from 'projen/lib/github/workflows-model';
+import { UpgradeDependenciesSchedule } from 'projen/lib/javascript';
 
 const project = new cdk.JsiiProject({
   author: 'Ringo De Smet',
