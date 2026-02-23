@@ -1,5 +1,6 @@
 import { cdk, javascript } from 'projen';
-import { JobPermission } from 'projen/lib/github/workflows-model';
+import { GithubCredentials } from 'projen/lib/github';
+import { AppPermission, JobPermission } from 'projen/lib/github/workflows-model';
 import { UpgradeDependenciesSchedule } from 'projen/lib/javascript';
 
 const project = new cdk.JsiiProject({
@@ -22,6 +23,17 @@ const project = new cdk.JsiiProject({
   devDeps: ['@jsii/spec'],
   /* Peer dependencies for this module. */
   peerDeps: ['constructs', 'projen'],
+
+  projenCredentials: GithubCredentials.fromApp({
+    appIdSecret: 'PROJEN_APP_ID',
+    privateKeySecret: 'PROJEN_APP_PRIVATE_KEY',
+    owner: 'containercraft',
+    permissions: {
+      contents: AppPermission.WRITE,
+      pullRequests: AppPermission.WRITE,
+      workflows: AppPermission.WRITE,
+    },
+  }),
 
   depsUpgradeOptions: {
     workflowOptions: {
