@@ -22,7 +22,8 @@ const project = new cdk.JsiiProject({
   name: '@containercraft/projen-pulumi-crd-sdks',
   packageManager: javascript.NodePackageManager.NPM,
   projenrcTs: true,
-  repositoryUrl: 'https://github.com/containercraft/projen-pulumi-crd-sdks',
+  homepage: 'https://github.com/ContainerCraft/projen-pulumi-crd-sdks',
+  repositoryUrl: 'https://github.com/ContainerCraft/projen-pulumi-crd-sdks.git',
   release: true,
 
   packageName: '@containercraft/projen-pulumi-crd-sdks',

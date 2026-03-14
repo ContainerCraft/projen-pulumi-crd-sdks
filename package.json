@@ -3,7 +3,7 @@
   "description": "Projen project type to generate Pulumi SDKs for Kubernetes CRDs",
   "repository": {
     "type": "git",
-    "url": "https://github.com/containercraft/projen-pulumi-crd-sdks"
+    "url": "https://github.com/ContainerCraft/projen-pulumi-crd-sdks.git"
   },
   "scripts": {
     "build": "npx projen build",
@@ -74,6 +74,7 @@
   ],
   "main": "lib/index.js",
   "license": "Apache-2.0",
+  "homepage": "https://github.com/ContainerCraft/projen-pulumi-crd-sdks",
   "publishConfig": {
     "access": "public"
   },
