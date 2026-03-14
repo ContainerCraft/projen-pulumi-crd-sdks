@@ -3,9 +3,9 @@
 name: release
 on:
   push:
-    tags:
-      - v*.*.*
-      - "!v*.*.*-**"
+    branches:
+      - main
+  workflow_dispatch: {}
 concurrency:
   group: ${{ github.workflow }}
   cancel-in-progress: false

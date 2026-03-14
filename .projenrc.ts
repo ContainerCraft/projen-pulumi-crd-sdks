@@ -1,4 +1,4 @@
-import { cdk, javascript, JsonPatch } from 'projen';
+import { cdk, javascript } from 'projen';
 import { GithubCredentials } from 'projen/lib/github';
 import { AppPermission, JobPermission } from 'projen/lib/github/workflows-model';
 import { UpgradeDependenciesSchedule } from 'projen/lib/javascript';
@@ -50,22 +50,10 @@ const project = new cdk.JsiiProject({
       projenCredentials: appCredentials,
     },
   },
-
 });
 
 project.release?.publisher.publishToNpm({
   trustedPublishing: true,
 });
-
-project.github?.tryFindWorkflow('release')?.file?.patch(
-  JsonPatch.remove('/on/push/branches'),
-  JsonPatch.remove('/on/workflow_dispatch'),
-  JsonPatch.add('/on/push', {
-    tags: [
-      'v*.*.*',
-      '!v*.*.*-**',
-    ],
-  }),
-);
 
 project.synth();
