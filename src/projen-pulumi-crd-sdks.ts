@@ -1,15 +1,19 @@
 import * as projen from 'projen';
+import { GithubActionsWorkflow } from './github-actions-workflow';
 
-export interface PulumiCrdSdksProjectOptions extends projen.ProjectOptions {
+export interface PulumiCrdSdksProjectOptions extends projen.github.GitHubProjectOptions {
   /**
    * List of HTTPS URLs containing the ${VERSION} placeholder.
    */
   readonly crdUrls: string[];
 }
 
-export class PulumiCrdSdksProject extends projen.Project {
+export class PulumiCrdSdksProject extends projen.github.GitHubProject {
   constructor(options: PulumiCrdSdksProjectOptions) {
-    super(options);
+    super({
+      ...options,
+      github: options.github ?? true,
+    });
 
     if (options.crdUrls.length === 0) {
       throw new Error('crdUrls cannot be empty');
@@ -46,6 +50,8 @@ export class PulumiCrdSdksProject extends projen.Project {
     new projen.TextFile(this, 'mise.toml', {
       lines: [contents],
     });
+
+    new GithubActionsWorkflow(this);
 
     const crdUrls = options.crdUrls;
     const makefile = new (class extends projen.Makefile {

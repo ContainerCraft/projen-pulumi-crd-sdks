@@ -1,5 +1,5 @@
 import { synthSnapshot } from 'projen/lib/util/synth';
-import { PulumiCrdSdksProject } from '../src';
+import { PulumiCrdSdksProject } from '../src/projen-pulumi-crd-sdks';
 
 describe('PulumiCrdSdksProject', () => {
 

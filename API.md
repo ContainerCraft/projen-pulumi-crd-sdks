@@ -2,6 +2,188 @@
 
 ## Constructs <a name="Constructs" id="Constructs"></a>
 
+### GithubActionsWorkflow <a name="GithubActionsWorkflow" id="@containercraft/projen-pulumi-crd-sdks.GithubActionsWorkflow"></a>
+
+Component that manages the main GitHub Actions workflow.
+
+This workflow installs tools using mise, runs build, and ensures the Git workspace is clean.
+
+#### Initializers <a name="Initializers" id="@containercraft/projen-pulumi-crd-sdks.GithubActionsWorkflow.Initializer"></a>
+
+```typescript
+import { GithubActionsWorkflow } from '@containercraft/projen-pulumi-crd-sdks'
+
+new GithubActionsWorkflow(project: Project)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@containercraft/projen-pulumi-crd-sdks.GithubActionsWorkflow.Initializer.parameter.project">project</a></code> | <code>projen.Project</code> | *No description.* |
+
+---
+
+##### `project`<sup>Required</sup> <a name="project" id="@containercraft/projen-pulumi-crd-sdks.GithubActionsWorkflow.Initializer.parameter.project"></a>
+
+- *Type:* projen.Project
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@containercraft/projen-pulumi-crd-sdks.GithubActionsWorkflow.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@containercraft/projen-pulumi-crd-sdks.GithubActionsWorkflow.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@containercraft/projen-pulumi-crd-sdks.GithubActionsWorkflow.postSynthesize">postSynthesize</a></code> | Called after synthesis. |
+| <code><a href="#@containercraft/projen-pulumi-crd-sdks.GithubActionsWorkflow.preSynthesize">preSynthesize</a></code> | Called before synthesis. |
+| <code><a href="#@containercraft/projen-pulumi-crd-sdks.GithubActionsWorkflow.synthesize">synthesize</a></code> | Synthesizes files to the project output directory. |
+
+---
+
+##### `toString` <a name="toString" id="@containercraft/projen-pulumi-crd-sdks.GithubActionsWorkflow.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@containercraft/projen-pulumi-crd-sdks.GithubActionsWorkflow.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@containercraft/projen-pulumi-crd-sdks.GithubActionsWorkflow.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+The mixins to apply.
+
+---
+
+##### `postSynthesize` <a name="postSynthesize" id="@containercraft/projen-pulumi-crd-sdks.GithubActionsWorkflow.postSynthesize"></a>
+
+```typescript
+public postSynthesize(): void
+```
+
+Called after synthesis.
+
+Order is *not* guaranteed.
+
+##### `preSynthesize` <a name="preSynthesize" id="@containercraft/projen-pulumi-crd-sdks.GithubActionsWorkflow.preSynthesize"></a>
+
+```typescript
+public preSynthesize(): void
+```
+
+Called before synthesis.
+
+##### `synthesize` <a name="synthesize" id="@containercraft/projen-pulumi-crd-sdks.GithubActionsWorkflow.synthesize"></a>
+
+```typescript
+public synthesize(): void
+```
+
+Synthesizes files to the project output directory.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@containercraft/projen-pulumi-crd-sdks.GithubActionsWorkflow.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@containercraft/projen-pulumi-crd-sdks.GithubActionsWorkflow.isComponent">isComponent</a></code> | Test whether the given construct is a component. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="@containercraft/projen-pulumi-crd-sdks.GithubActionsWorkflow.isConstruct"></a>
+
+```typescript
+import { GithubActionsWorkflow } from '@containercraft/projen-pulumi-crd-sdks'
+
+GithubActionsWorkflow.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="@containercraft/projen-pulumi-crd-sdks.GithubActionsWorkflow.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isComponent` <a name="isComponent" id="@containercraft/projen-pulumi-crd-sdks.GithubActionsWorkflow.isComponent"></a>
+
+```typescript
+import { GithubActionsWorkflow } from '@containercraft/projen-pulumi-crd-sdks'
+
+GithubActionsWorkflow.isComponent(x: any)
+```
+
+Test whether the given construct is a component.
+
+###### `x`<sup>Required</sup> <a name="x" id="@containercraft/projen-pulumi-crd-sdks.GithubActionsWorkflow.isComponent.parameter.x"></a>
+
+- *Type:* any
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@containercraft/projen-pulumi-crd-sdks.GithubActionsWorkflow.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@containercraft/projen-pulumi-crd-sdks.GithubActionsWorkflow.property.project">project</a></code> | <code>projen.Project</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@containercraft/projen-pulumi-crd-sdks.GithubActionsWorkflow.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `project`<sup>Required</sup> <a name="project" id="@containercraft/projen-pulumi-crd-sdks.GithubActionsWorkflow.property.project"></a>
+
+```typescript
+public readonly project: Project;
+```
+
+- *Type:* projen.Project
+
+---
+
+
 ### PulumiCrdSdksProject <a name="PulumiCrdSdksProject" id="@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProject"></a>
 
 #### Initializers <a name="Initializers" id="@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProject.Initializer"></a>
@@ -35,7 +217,7 @@ new PulumiCrdSdksProject(options: PulumiCrdSdksProjectOptions)
 | <code><a href="#@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProject.addPackageIgnore">addPackageIgnore</a></code> | Exclude these files from the bundled package. |
 | <code><a href="#@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProject.addTask">addTask</a></code> | Adds a new task to this project. |
 | <code><a href="#@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProject.addTip">addTip</a></code> | Prints a "tip" message during synthesis. |
-| <code><a href="#@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProject.annotateGenerated">annotateGenerated</a></code> | Consider a set of files as "generated". |
+| <code><a href="#@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProject.annotateGenerated">annotateGenerated</a></code> | Marks the provided file(s) as being generated. |
 | <code><a href="#@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProject.postSynthesize">postSynthesize</a></code> | Called after all components are synthesized. |
 | <code><a href="#@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProject.preSynthesize">preSynthesize</a></code> | Called before all components are synthesized. |
 | <code><a href="#@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProject.removeTask">removeTask</a></code> | Removes a task from a project. |
@@ -177,16 +359,18 @@ The message.
 ##### `annotateGenerated` <a name="annotateGenerated" id="@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProject.annotateGenerated"></a>
 
 ```typescript
-public annotateGenerated(_glob: string): void
+public annotateGenerated(glob: string): void
 ```
 
-Consider a set of files as "generated".
+Marks the provided file(s) as being generated.
 
-This method is implemented by
-derived classes and used for example, to add git attributes to tell GitHub
-that certain files are generated.
+This is achieved using the
+github-linguist attributes. Generated files do not count against the
+repository statistics and language breakdown.
 
-###### `_glob`<sup>Required</sup> <a name="_glob" id="@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProject.annotateGenerated.parameter._glob"></a>
+> [https://github.com/github/linguist/blob/master/docs/overrides.md](https://github.com/github/linguist/blob/master/docs/overrides.md)
+
+###### `glob`<sup>Required</sup> <a name="glob" id="@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProject.annotateGenerated.parameter.glob"></a>
 
 - *Type:* string
 
@@ -436,6 +620,12 @@ When given a project, this it the project itself.
 | <code><a href="#@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProject.property.defaultTask">defaultTask</a></code> | <code>projen.Task</code> | This is the "default" task, the one that executes "projen". |
 | <code><a href="#@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProject.property.initProject">initProject</a></code> | <code>projen.InitProject</code> | The options used when this project is bootstrapped via `projen new`. |
 | <code><a href="#@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProject.property.parent">parent</a></code> | <code>projen.Project</code> | A parent project. |
+| <code><a href="#@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProject.property.projectType">projectType</a></code> | <code>projen.ProjectType</code> | *No description.* |
+| <code><a href="#@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProject.property.autoApprove">autoApprove</a></code> | <code>projen.github.AutoApprove</code> | Auto approve set up for this project. |
+| <code><a href="#@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProject.property.devContainer">devContainer</a></code> | <code>projen.vscode.DevContainer</code> | Access for .devcontainer.json (used for GitHub Codespaces). |
+| <code><a href="#@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProject.property.github">github</a></code> | <code>projen.github.GitHub</code> | Access all github components. |
+| <code><a href="#@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProject.property.gitpod">gitpod</a></code> | <code>projen.Gitpod</code> | Access for Gitpod. |
+| <code><a href="#@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProject.property.vscode">vscode</a></code> | <code>projen.vscode.VsCode</code> | Access all VSCode components. |
 
 ---
 
@@ -736,6 +926,84 @@ If undefined, this is the root project.
 
 ---
 
+##### `projectType`<sup>Required</sup> <a name="projectType" id="@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProject.property.projectType"></a>
+
+```typescript
+public readonly projectType: ProjectType;
+```
+
+- *Type:* projen.ProjectType
+
+---
+
+##### `autoApprove`<sup>Optional</sup> <a name="autoApprove" id="@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProject.property.autoApprove"></a>
+
+```typescript
+public readonly autoApprove: AutoApprove;
+```
+
+- *Type:* projen.github.AutoApprove
+
+Auto approve set up for this project.
+
+---
+
+##### `devContainer`<sup>Optional</sup> <a name="devContainer" id="@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProject.property.devContainer"></a>
+
+```typescript
+public readonly devContainer: DevContainer;
+```
+
+- *Type:* projen.vscode.DevContainer
+
+Access for .devcontainer.json (used for GitHub Codespaces).
+
+This will be `undefined` if devContainer boolean is false
+
+---
+
+##### `github`<sup>Optional</sup> <a name="github" id="@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProject.property.github"></a>
+
+```typescript
+public readonly github: GitHub;
+```
+
+- *Type:* projen.github.GitHub
+
+Access all github components.
+
+This will be `undefined` for subprojects.
+
+---
+
+##### `gitpod`<sup>Optional</sup> <a name="gitpod" id="@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProject.property.gitpod"></a>
+
+```typescript
+public readonly gitpod: Gitpod;
+```
+
+- *Type:* projen.Gitpod
+
+Access for Gitpod.
+
+This will be `undefined` if gitpod boolean is false
+
+---
+
+##### `vscode`<sup>Optional</sup> <a name="vscode" id="@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProject.property.vscode"></a>
+
+```typescript
+public readonly vscode: VsCode;
+```
+
+- *Type:* projen.vscode.VsCode
+
+Access all VSCode components.
+
+This will be `undefined` for subprojects.
+
+---
+
 #### Constants <a name="Constants" id="Constants"></a>
 
 | **Name** | **Type** | **Description** |
@@ -788,6 +1056,23 @@ const pulumiCrdSdksProjectOptions: PulumiCrdSdksProjectOptions = { ... }
 | <code><a href="#@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProjectOptions.property.projenrcJsonOptions">projenrcJsonOptions</a></code> | <code>projen.ProjenrcJsonOptions</code> | Options for .projenrc.json. |
 | <code><a href="#@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProjectOptions.property.renovatebot">renovatebot</a></code> | <code>boolean</code> | Use renovatebot to handle dependency upgrades. |
 | <code><a href="#@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProjectOptions.property.renovatebotOptions">renovatebotOptions</a></code> | <code>projen.RenovatebotOptions</code> | Options for renovatebot. |
+| <code><a href="#@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProjectOptions.property.autoApproveOptions">autoApproveOptions</a></code> | <code>projen.github.AutoApproveOptions</code> | Enable and configure the 'auto approve' workflow. |
+| <code><a href="#@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProjectOptions.property.autoMerge">autoMerge</a></code> | <code>boolean</code> | Enable automatic merging on GitHub. |
+| <code><a href="#@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProjectOptions.property.autoMergeOptions">autoMergeOptions</a></code> | <code>projen.github.AutoMergeOptions</code> | Configure options for automatic merging on GitHub. |
+| <code><a href="#@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProjectOptions.property.clobber">clobber</a></code> | <code>boolean</code> | Add a `clobber` task which resets the repo to origin. |
+| <code><a href="#@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProjectOptions.property.devContainer">devContainer</a></code> | <code>boolean</code> | Add a VSCode development environment (used for GitHub Codespaces). |
+| <code><a href="#@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProjectOptions.property.github">github</a></code> | <code>boolean</code> | Enable GitHub integration. |
+| <code><a href="#@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProjectOptions.property.githubOptions">githubOptions</a></code> | <code>projen.github.GitHubOptions</code> | Options for GitHub integration. |
+| <code><a href="#@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProjectOptions.property.gitpod">gitpod</a></code> | <code>boolean</code> | Add a Gitpod development environment. |
+| <code><a href="#@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProjectOptions.property.mergify">mergify</a></code> | <code>boolean</code> | Whether mergify should be enabled on this repository or not. |
+| <code><a href="#@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProjectOptions.property.mergifyOptions">mergifyOptions</a></code> | <code>projen.github.MergifyOptions</code> | Options for mergify. |
+| <code><a href="#@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProjectOptions.property.projectType">projectType</a></code> | <code>projen.ProjectType</code> | Which type of project this is (library/app). |
+| <code><a href="#@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProjectOptions.property.projenCredentials">projenCredentials</a></code> | <code>projen.github.GithubCredentials</code> | Choose a method of providing GitHub API access for projen workflows. |
+| <code><a href="#@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProjectOptions.property.projenTokenSecret">projenTokenSecret</a></code> | <code>string</code> | The name of a secret which includes a GitHub Personal Access Token to be used by projen workflows. |
+| <code><a href="#@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProjectOptions.property.readme">readme</a></code> | <code>projen.SampleReadmeProps</code> | The README setup. |
+| <code><a href="#@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProjectOptions.property.stale">stale</a></code> | <code>boolean</code> | Auto-close of stale issues and pull request. |
+| <code><a href="#@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProjectOptions.property.staleOptions">staleOptions</a></code> | <code>projen.github.StaleOptions</code> | Auto-close stale issues and pull requests. |
+| <code><a href="#@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProjectOptions.property.vscode">vscode</a></code> | <code>boolean</code> | Enable VSCode integration. |
 | <code><a href="#@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProjectOptions.property.crdUrls">crdUrls</a></code> | <code>string[]</code> | List of HTTPS URLs containing the ${VERSION} placeholder. |
 
 ---
@@ -963,6 +1248,259 @@ public readonly renovatebotOptions: RenovatebotOptions;
 - *Default:* default options
 
 Options for renovatebot.
+
+---
+
+##### `autoApproveOptions`<sup>Optional</sup> <a name="autoApproveOptions" id="@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProjectOptions.property.autoApproveOptions"></a>
+
+```typescript
+public readonly autoApproveOptions: AutoApproveOptions;
+```
+
+- *Type:* projen.github.AutoApproveOptions
+- *Default:* auto approve is disabled
+
+Enable and configure the 'auto approve' workflow.
+
+---
+
+##### `autoMerge`<sup>Optional</sup> <a name="autoMerge" id="@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProjectOptions.property.autoMerge"></a>
+
+```typescript
+public readonly autoMerge: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Enable automatic merging on GitHub.
+
+Has no effect if `github.mergify`
+is set to false.
+
+---
+
+##### `autoMergeOptions`<sup>Optional</sup> <a name="autoMergeOptions" id="@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProjectOptions.property.autoMergeOptions"></a>
+
+```typescript
+public readonly autoMergeOptions: AutoMergeOptions;
+```
+
+- *Type:* projen.github.AutoMergeOptions
+- *Default:* see defaults in `AutoMergeOptions`
+
+Configure options for automatic merging on GitHub.
+
+Has no effect if
+`github.mergify` or `autoMerge` is set to false.
+
+---
+
+##### `clobber`<sup>Optional</sup> <a name="clobber" id="@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProjectOptions.property.clobber"></a>
+
+```typescript
+public readonly clobber: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true, but false for subprojects
+
+Add a `clobber` task which resets the repo to origin.
+
+---
+
+##### `devContainer`<sup>Optional</sup> <a name="devContainer" id="@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProjectOptions.property.devContainer"></a>
+
+```typescript
+public readonly devContainer: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Add a VSCode development environment (used for GitHub Codespaces).
+
+---
+
+##### `github`<sup>Optional</sup> <a name="github" id="@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProjectOptions.property.github"></a>
+
+```typescript
+public readonly github: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Enable GitHub integration.
+
+Enabled by default for root projects. Disabled for non-root projects.
+
+---
+
+##### `githubOptions`<sup>Optional</sup> <a name="githubOptions" id="@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProjectOptions.property.githubOptions"></a>
+
+```typescript
+public readonly githubOptions: GitHubOptions;
+```
+
+- *Type:* projen.github.GitHubOptions
+- *Default:* see GitHubOptions
+
+Options for GitHub integration.
+
+---
+
+##### `gitpod`<sup>Optional</sup> <a name="gitpod" id="@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProjectOptions.property.gitpod"></a>
+
+```typescript
+public readonly gitpod: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Add a Gitpod development environment.
+
+---
+
+##### ~~`mergify`~~<sup>Optional</sup> <a name="mergify" id="@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProjectOptions.property.mergify"></a>
+
+- *Deprecated:* use `githubOptions.mergify` instead
+
+```typescript
+public readonly mergify: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Whether mergify should be enabled on this repository or not.
+
+---
+
+##### ~~`mergifyOptions`~~<sup>Optional</sup> <a name="mergifyOptions" id="@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProjectOptions.property.mergifyOptions"></a>
+
+- *Deprecated:* use `githubOptions.mergifyOptions` instead
+
+```typescript
+public readonly mergifyOptions: MergifyOptions;
+```
+
+- *Type:* projen.github.MergifyOptions
+- *Default:* default options
+
+Options for mergify.
+
+---
+
+##### ~~`projectType`~~<sup>Optional</sup> <a name="projectType" id="@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProjectOptions.property.projectType"></a>
+
+- *Deprecated:* no longer supported at the base project level
+
+```typescript
+public readonly projectType: ProjectType;
+```
+
+- *Type:* projen.ProjectType
+- *Default:* ProjectType.UNKNOWN
+
+Which type of project this is (library/app).
+
+---
+
+##### `projenCredentials`<sup>Optional</sup> <a name="projenCredentials" id="@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProjectOptions.property.projenCredentials"></a>
+
+```typescript
+public readonly projenCredentials: GithubCredentials;
+```
+
+- *Type:* projen.github.GithubCredentials
+- *Default:* use a personal access token named PROJEN_GITHUB_TOKEN
+
+Choose a method of providing GitHub API access for projen workflows.
+
+---
+
+##### ~~`projenTokenSecret`~~<sup>Optional</sup> <a name="projenTokenSecret" id="@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProjectOptions.property.projenTokenSecret"></a>
+
+- *Deprecated:* use `projenCredentials`
+
+```typescript
+public readonly projenTokenSecret: string;
+```
+
+- *Type:* string
+- *Default:* "PROJEN_GITHUB_TOKEN"
+
+The name of a secret which includes a GitHub Personal Access Token to be used by projen workflows.
+
+This token needs to have the `repo`, `workflows`
+and `packages` scope.
+
+---
+
+##### `readme`<sup>Optional</sup> <a name="readme" id="@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProjectOptions.property.readme"></a>
+
+```typescript
+public readonly readme: SampleReadmeProps;
+```
+
+- *Type:* projen.SampleReadmeProps
+- *Default:* { filename: 'README.md', contents: '# replace this' }
+
+The README setup.
+
+---
+
+*Example*
+
+```typescript
+"{ filename: 'readme.md', contents: '# title' }"
+```
+
+
+##### `stale`<sup>Optional</sup> <a name="stale" id="@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProjectOptions.property.stale"></a>
+
+```typescript
+public readonly stale: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Auto-close of stale issues and pull request.
+
+See `staleOptions` for options.
+
+---
+
+##### `staleOptions`<sup>Optional</sup> <a name="staleOptions" id="@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProjectOptions.property.staleOptions"></a>
+
+```typescript
+public readonly staleOptions: StaleOptions;
+```
+
+- *Type:* projen.github.StaleOptions
+- *Default:* see defaults in `StaleOptions`
+
+Auto-close stale issues and pull requests.
+
+To disable set `stale` to `false`.
+
+---
+
+##### `vscode`<sup>Optional</sup> <a name="vscode" id="@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProjectOptions.property.vscode"></a>
+
+```typescript
+public readonly vscode: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Enable VSCode integration.
+
+Enabled by default for root projects. Disabled for non-root projects.
 
 ---
 
