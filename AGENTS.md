@@ -36,10 +36,31 @@ This project is managed by [projen](https://github.com/projen/projen), a project
 
 This project's configuration is defined in the .projenrc.ts file at the root of the repository. All project metadata, dependencies, scripts, and tooling configuration should be managed through this file.
 
+## Projen Project Type implementation to publish Pulumi CRD SDKs
+
+Kubernetes can be extended by way of Custom Resource Definitions (CRDs). The SDKs of the Pulumi Kubernetes provider only contains the resource types for the
+default Kubernetes types. The `CustomResource` can be used to instantiate any of the extension types backed by a CRD. Pulumi supports generating typed
+SDKs for Custom Resource Definitions using the `crd2pulumi` tool.
+
+A Kubernetes extension, usually having an operator with associated CRDs, evolves like any other software project having multiple releases. This Projen project type
+intends to manage the build files & Github Actions workflow files for projects containing Kubernetes CRDs. Each project set up with this Projen project type
+will have a set of managed files and workflows which keeps track of the corresponding releases in the upstream Kubernetes operator project.
+
+For example, CertManager is a Kubernetes operator with CRDs. A git repo publishing the accompanying types Pulumi SDKs for CertManager will have the workflows managed
+by this Projen project type.
+
+Create codified Projen components generating Github workflows & accompanying build files. Within these codfied components, make use of well-maintained Github
+Actions listed in the Github Actions Marketplace. Always create the corresponding test in the `test` folder verifying that the generated workflow file is correct.
+
+When selecting a Github Action, check that the actions used are well-maintained, with recent releases and highly rated.
+
 ## Additional Resources
 
 - [Projen Documentation](https://projen.io)
 - [Projen GitHub Repository](https://github.com/projen/projen)
+- [Github Actions Marketplace](https://github.com/marketplace?type=actions)
+- [Pulumi Kubernetes Provider](https://www.pulumi.com/registry/packages/kubernetes/)
+- [crd2pulumi](https://github.com/pulumi/crd2pulumi/)
 
 # Development Best Practices
 
