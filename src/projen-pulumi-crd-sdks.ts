@@ -34,7 +34,7 @@ export class PulumiCrdSdksProject extends projen.Project {
 
     const contents = `
     [tools]
-    'github:pulumi/crd2pulumi' = '1.6.0'
+    'github:pulumi/crd2pulumi' = '1.6.1'
     `;
 
     new projen.License(this, {
