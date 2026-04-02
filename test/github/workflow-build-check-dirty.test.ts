@@ -1,10 +1,18 @@
 import * as projen from 'projen';
 import { synthSnapshot } from 'projen/lib/util/synth';
 
-import { PulumiCrdSdksProject } from '../../src';
+import { PackageNames, PulumiCrdSdksProject } from '../../src';
 import { WorkflowBuildCheckDirty } from '../../src/github';
 
-describe('GithubActionsWorkflow', () => {
+const packageNames: PackageNames = {
+  node: '@owner/package',
+  python: 'owner_package',
+  dotnet: 'Owner.Package',
+  go: 'example',
+  java: 'com.owner.package',
+};
+
+describe('WorkflowBuildCheckDirty', () => {
 
   test('is generated when GitHub is enabled', () => {
     // GIVEN
@@ -179,6 +187,7 @@ describe('GithubActionsWorkflow', () => {
     const project = new PulumiCrdSdksProject({
       name: 'pulumi-k8s-test',
       crdUrls: ['https://example.com/crds.yaml'],
+      packageNames: packageNames,
     });
 
     // WHEN

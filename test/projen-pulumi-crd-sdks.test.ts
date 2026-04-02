@@ -1,5 +1,13 @@
 import { synthSnapshot } from 'projen/lib/util/synth';
-import { PulumiCrdSdksProject } from '../src/projen-pulumi-crd-sdks';
+import { PackageNames, PulumiCrdSdksProject } from '../src/projen-pulumi-crd-sdks';
+
+const packageNames: PackageNames = {
+  node: '@owner/package',
+  python: 'owner_package',
+  dotnet: 'Owner.Package',
+  go: 'example',
+  java: 'com.owner.package',
+};
 
 describe('PulumiCrdSdksProject', () => {
   test('mise.toml is generated', () => {
@@ -7,6 +15,7 @@ describe('PulumiCrdSdksProject', () => {
     const project = new PulumiCrdSdksProject({
       name: 'pulumi-k8s-cert-manager',
       crdUrls: ['https://example.com/crds.yaml'],
+      packageNames: packageNames,
     });
 
     // WHEN
@@ -23,6 +32,7 @@ describe('PulumiCrdSdksProject', () => {
     const project = new PulumiCrdSdksProject({
       name: 'pulumi-k8s-cert-manager',
       crdUrls: ['https://example.com/crds.yaml'],
+      packageNames: packageNames,
     });
 
     // WHEN
@@ -41,18 +51,20 @@ describe('PulumiCrdSdksProject', () => {
         'https://raw.githubusercontent.com/cert-manager/cert-manager/v${VERSION}/deploy/charts/cert-manager/templates/crds.yaml',
         'https://raw.githubusercontent.com/cert-manager/cert-manager/v${VERSION}/deploy/charts/cert-manager/templates/another.yaml',
       ],
+      latestVersionOnBranch: '1.0.0',
+      packageNames: packageNames,
     });
 
     // WHEN
     const snapshot = synthSnapshot(project);
 
     // THEN
-    expect(snapshot.Makefile).toContain('VERSION ?=');
+    expect(snapshot.Makefile).toContain('VERSION ?= 1.0.0');
     expect(snapshot.Makefile).toContain(
-      'crd2pulumi --nodejsPath sdk/nodejs https://raw.githubusercontent.com/cert-manager/cert-manager/v$(VERSION)/deploy/charts/cert-manager/templates/crds.yaml',
+      'https://raw.githubusercontent.com/cert-manager/cert-manager/v$(VERSION)/deploy/charts/cert-manager/templates/crds.yaml',
     );
     expect(snapshot.Makefile).toContain(
-      'crd2pulumi --nodejsPath sdk/nodejs https://raw.githubusercontent.com/cert-manager/cert-manager/v$(VERSION)/deploy/charts/cert-manager/templates/another.yaml',
+      'https://raw.githubusercontent.com/cert-manager/cert-manager/v$(VERSION)/deploy/charts/cert-manager/templates/another.yaml',
     );
   });
 
@@ -61,6 +73,7 @@ describe('PulumiCrdSdksProject', () => {
     const options = {
       name: 'pulumi-k8s-cert-manager',
       crdUrls: [],
+      packageNames: packageNames,
     };
 
     // WHEN & THEN
@@ -77,6 +90,7 @@ describe('PulumiCrdSdksProject', () => {
         'https://raw.githubusercontent.com/cert-manager/cert-manager/v${VERSION}/deploy/charts/cert-manager/templates/crds.yaml',
         'https://raw.githubusercontent.com/external-secrets/external-secrets/v${VERSION}/deploy/crds/bundle.yaml',
       ],
+      packageNames: packageNames,
     };
 
     // WHEN & THEN
@@ -93,6 +107,7 @@ describe('PulumiCrdSdksProject', () => {
         'https://github.com/cert-manager/cert-manager/raw/v${VERSION}/deploy/charts/cert-manager/templates/crds.yaml',
         'https://github.com/cert-manager/cert-manager/raw/v${VERSION}/deploy/charts/cert-manager/templates/another.yaml',
       ],
+      packageNames: packageNames,
     });
 
     // WHEN
@@ -109,6 +124,7 @@ describe('PulumiCrdSdksProject', () => {
     const options = {
       name: 'pulumi-k8s-invalid',
       crdUrls: ['invalid-url', 'invalid-url'],
+      packageNames: packageNames,
     };
 
     // WHEN

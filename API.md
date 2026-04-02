@@ -984,6 +984,78 @@ public readonly repository: string;
 
 ---
 
+### PackageNames <a name="PackageNames" id="@containercraft/projen-pulumi-crd-sdks.PackageNames"></a>
+
+#### Initializer <a name="Initializer" id="@containercraft/projen-pulumi-crd-sdks.PackageNames.Initializer"></a>
+
+```typescript
+import { PackageNames } from '@containercraft/projen-pulumi-crd-sdks'
+
+const packageNames: PackageNames = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@containercraft/projen-pulumi-crd-sdks.PackageNames.property.dotnet">dotnet</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@containercraft/projen-pulumi-crd-sdks.PackageNames.property.go">go</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@containercraft/projen-pulumi-crd-sdks.PackageNames.property.node">node</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@containercraft/projen-pulumi-crd-sdks.PackageNames.property.python">python</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@containercraft/projen-pulumi-crd-sdks.PackageNames.property.java">java</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `dotnet`<sup>Required</sup> <a name="dotnet" id="@containercraft/projen-pulumi-crd-sdks.PackageNames.property.dotnet"></a>
+
+```typescript
+public readonly dotnet: string;
+```
+
+- *Type:* string
+
+---
+
+##### `go`<sup>Required</sup> <a name="go" id="@containercraft/projen-pulumi-crd-sdks.PackageNames.property.go"></a>
+
+```typescript
+public readonly go: string;
+```
+
+- *Type:* string
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@containercraft/projen-pulumi-crd-sdks.PackageNames.property.node"></a>
+
+```typescript
+public readonly node: string;
+```
+
+- *Type:* string
+
+---
+
+##### `python`<sup>Required</sup> <a name="python" id="@containercraft/projen-pulumi-crd-sdks.PackageNames.property.python"></a>
+
+```typescript
+public readonly python: string;
+```
+
+- *Type:* string
+
+---
+
+##### `java`<sup>Optional</sup> <a name="java" id="@containercraft/projen-pulumi-crd-sdks.PackageNames.property.java"></a>
+
+```typescript
+public readonly java: string;
+```
+
+- *Type:* string
+
+---
+
 ### PulumiCrdSdksProjectOptions <a name="PulumiCrdSdksProjectOptions" id="@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProjectOptions"></a>
 
 #### Initializer <a name="Initializer" id="@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProjectOptions.Initializer"></a>
@@ -1011,7 +1083,9 @@ const pulumiCrdSdksProjectOptions: PulumiCrdSdksProjectOptions = { ... }
 | <code><a href="#@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProjectOptions.property.projenrcJsonOptions">projenrcJsonOptions</a></code> | <code>projen.ProjenrcJsonOptions</code> | Options for .projenrc.json. |
 | <code><a href="#@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProjectOptions.property.renovatebot">renovatebot</a></code> | <code>boolean</code> | Use renovatebot to handle dependency upgrades. |
 | <code><a href="#@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProjectOptions.property.renovatebotOptions">renovatebotOptions</a></code> | <code>projen.RenovatebotOptions</code> | Options for renovatebot. |
+| <code><a href="#@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProjectOptions.property.packageNames">packageNames</a></code> | <code><a href="#@containercraft/projen-pulumi-crd-sdks.PackageNames">PackageNames</a></code> | Package names for the generated Pulumi SDKs. |
 | <code><a href="#@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProjectOptions.property.crdUrls">crdUrls</a></code> | <code>string[]</code> | List of HTTPS URLs containing the ${VERSION} placeholder. |
+| <code><a href="#@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProjectOptions.property.latestVersionOnBranch">latestVersionOnBranch</a></code> | <code>string</code> | Latest version of the SDKs released on this branch. |
 | <code><a href="#@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProjectOptions.property.upstreamProject">upstreamProject</a></code> | <code>@containercraft/projen-pulumi-crd-sdks.github.GithubRepository</code> | Github location of the upstream project to track for new releases. |
 
 ---
@@ -1190,6 +1264,18 @@ Options for renovatebot.
 
 ---
 
+##### `packageNames`<sup>Required</sup> <a name="packageNames" id="@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProjectOptions.property.packageNames"></a>
+
+```typescript
+public readonly packageNames: PackageNames;
+```
+
+- *Type:* <a href="#@containercraft/projen-pulumi-crd-sdks.PackageNames">PackageNames</a>
+
+Package names for the generated Pulumi SDKs.
+
+---
+
 ##### `crdUrls`<sup>Optional</sup> <a name="crdUrls" id="@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProjectOptions.property.crdUrls"></a>
 
 ```typescript
@@ -1199,6 +1285,22 @@ public readonly crdUrls: string[];
 - *Type:* string[]
 
 List of HTTPS URLs containing the ${VERSION} placeholder.
+
+---
+
+##### `latestVersionOnBranch`<sup>Optional</sup> <a name="latestVersionOnBranch" id="@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProjectOptions.property.latestVersionOnBranch"></a>
+
+```typescript
+public readonly latestVersionOnBranch: string;
+```
+
+- *Type:* string
+- *Default:* : 1.0.0
+
+Latest version of the SDKs released on this branch.
+
+This value shall be updated automatically by the project.
+This should be a semantic version (MAJOR.MINOR.PATCH), without a preceding 'v'.
 
 ---
 
