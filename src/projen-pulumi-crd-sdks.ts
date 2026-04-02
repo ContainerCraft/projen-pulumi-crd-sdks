@@ -20,7 +20,10 @@ export class PulumiCrdSdksProject extends Project {
   constructor(options: PulumiCrdSdksProjectOptions) {
     super(options);
 
-    this.github = new GitHub(this, {});
+    this.github = new GitHub(this, {
+      mergify: false,
+      pullRequestLint: false,
+    });
 
     // Generate a `.projenrc.ts` file
     new ProjenrcTs(this, {});
