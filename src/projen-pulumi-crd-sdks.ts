@@ -1,29 +1,37 @@
-import * as projen from 'projen';
+import { IResolver, License, Makefile, Project, ProjenrcJson, TextFile } from 'projen';
+import { GitHubProject, GitHubProjectOptions } from 'projen/lib/github';
 import { GithubActionsWorkflow } from './github-actions-workflow';
 
-export interface PulumiCrdSdksProjectOptions extends projen.github.GitHubProjectOptions {
+export interface PulumiCrdSdksProjectOptions
+  extends GitHubProjectOptions {
   /**
    * List of HTTPS URLs containing the ${VERSION} placeholder.
    */
   readonly crdUrls: string[];
 }
 
-export class PulumiCrdSdksProject extends projen.github.GitHubProject {
+export class PulumiCrdSdksProject extends GitHubProject {
   constructor(options: PulumiCrdSdksProjectOptions) {
     super({
       ...options,
       github: options.github ?? true,
     });
 
+    // Generate a `.projenrc.json` file
+    new ProjenrcJson(this, {});
+
     if (options.crdUrls.length === 0) {
       throw new Error('crdUrls cannot be empty');
     }
 
-    const projectIdentifiers = options.crdUrls.map(url => {
+    const projectIdentifiers = options.crdUrls.map((url) => {
       try {
         const parsedUrl = new URL(url);
         const parts = parsedUrl.pathname.split('/');
-        if (parsedUrl.hostname === 'raw.githubusercontent.com' || parsedUrl.hostname === 'github.com') {
+        if (
+          parsedUrl.hostname === 'raw.githubusercontent.com' ||
+          parsedUrl.hostname === 'github.com'
+        ) {
           return `${parsedUrl.hostname}/${parts[1]}/${parts[2]}`;
         }
         return `${parsedUrl.hostname}/${parts[1]}`;
@@ -36,29 +44,29 @@ export class PulumiCrdSdksProject extends projen.github.GitHubProject {
       throw new Error('All crdUrls must point to the same project');
     }
 
-    const contents = `
-    [tools]
-    'github:pulumi/crd2pulumi' = '1.6.1'
-    `;
-
-    new projen.License(this, {
+    new License(this, {
       spdx: 'Apache-2.0',
       copyrightOwner: 'Containercraft.io',
       copyrightPeriod: '2025-2026',
     });
 
-    new projen.TextFile(this, 'mise.toml', {
-      lines: [contents],
+    new TextFile(this, 'mise.toml', {
+      lines: [
+        '[tools]',
+        "'github:pulumi/crd2pulumi' = '1.6.1'",
+      ],
     });
 
     new GithubActionsWorkflow(this);
 
     const crdUrls = options.crdUrls;
-    const makefile = new (class extends projen.Makefile {
-      constructor(project: projen.Project) {
+    const makefile = new (class extends Makefile {
+      constructor(project: Project) {
         super(project, 'Makefile');
       }
-      protected synthesizeContent(resolver: projen.IResolver): string | undefined {
+      protected synthesizeContent(
+        resolver: IResolver,
+      ): string | undefined {
         const content = super.synthesizeContent(resolver);
         if (!content) return undefined;
         const lines = content.split('\n');
@@ -70,7 +78,10 @@ export class PulumiCrdSdksProject extends projen.github.GitHubProject {
 
     makefile.addRule({
       targets: ['build'],
-      recipe: crdUrls.map(url => `crd2pulumi --nodejsPath sdk/nodejs ${url.replace(/\${VERSION}/g, '$(VERSION)')}`),
+      recipe: crdUrls.map(
+        (url) =>
+          `crd2pulumi --nodejsPath sdk/nodejs ${url.replace(/\${VERSION}/g, '$(VERSION)')}`,
+      ),
       phony: true,
     });
   }
