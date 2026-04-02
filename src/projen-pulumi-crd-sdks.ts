@@ -1,30 +1,35 @@
-import { IResolver, License, Makefile, Project, ProjenrcJson, TextFile } from 'projen';
-import { GitHubProject, GitHubProjectOptions } from 'projen/lib/github';
+import { IResolver, License, Makefile, Project, ProjectOptions, TextFile } from 'projen';
+import { GitHub } from 'projen/lib/github';
+import { ProjenrcTs } from 'projen/lib/typescript';
 import { GithubActionsWorkflow } from './github-actions-workflow';
 
 export interface PulumiCrdSdksProjectOptions
-  extends GitHubProjectOptions {
+  extends ProjectOptions {
   /**
    * List of HTTPS URLs containing the ${VERSION} placeholder.
+   *
+   * @featured
    */
-  readonly crdUrls: string[];
+  readonly crdUrls?: string[];
 }
 
-export class PulumiCrdSdksProject extends GitHubProject {
+export class PulumiCrdSdksProject extends Project {
+  // @ts-ignore
+  private readonly github: GitHub;
+
   constructor(options: PulumiCrdSdksProjectOptions) {
-    super({
-      ...options,
-      github: options.github ?? true,
-    });
+    super(options);
 
-    // Generate a `.projenrc.json` file
-    new ProjenrcJson(this, {});
+    this.github = new GitHub(this, {});
 
-    if (options.crdUrls.length === 0) {
+    // Generate a `.projenrc.ts` file
+    new ProjenrcTs(this, {});
+
+    if (options.crdUrls?.length === 0) {
       throw new Error('crdUrls cannot be empty');
     }
 
-    const projectIdentifiers = options.crdUrls.map((url) => {
+    const projectIdentifiers = options.crdUrls?.map((url) => {
       try {
         const parsedUrl = new URL(url);
         const parts = parsedUrl.pathname.split('/');
@@ -78,7 +83,7 @@ export class PulumiCrdSdksProject extends GitHubProject {
 
     makefile.addRule({
       targets: ['build'],
-      recipe: crdUrls.map(
+      recipe: crdUrls?.map(
         (url) =>
           `crd2pulumi --nodejsPath sdk/nodejs ${url.replace(/\${VERSION}/g, '$(VERSION)')}`,
       ),
