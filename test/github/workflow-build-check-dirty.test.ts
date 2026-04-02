@@ -1,7 +1,8 @@
 import * as projen from 'projen';
 import { synthSnapshot } from 'projen/lib/util/synth';
-import { GithubActionsWorkflow } from '../src/github-actions-workflow';
-import { PulumiCrdSdksProject } from '../src/projen-pulumi-crd-sdks';
+
+import { PulumiCrdSdksProject } from '../../src';
+import { WorkflowBuildCheckDirty } from '../../src/github';
 
 describe('GithubActionsWorkflow', () => {
 
@@ -13,7 +14,7 @@ describe('GithubActionsWorkflow', () => {
     });
 
     // WHEN
-    new GithubActionsWorkflow(project);
+    new WorkflowBuildCheckDirty(project);
     const snapshot = synthSnapshot(project);
 
     // THEN
@@ -28,7 +29,7 @@ describe('GithubActionsWorkflow', () => {
     });
 
     // WHEN
-    new GithubActionsWorkflow(project);
+    new WorkflowBuildCheckDirty(project);
     const snapshot = synthSnapshot(project);
     const workflow = snapshot['.github/workflows/main.yml'];
 
@@ -47,7 +48,7 @@ describe('GithubActionsWorkflow', () => {
     });
 
     // WHEN
-    new GithubActionsWorkflow(project);
+    new WorkflowBuildCheckDirty(project);
     const snapshot = synthSnapshot(project);
     const workflow = snapshot['.github/workflows/main.yml'];
 
@@ -63,7 +64,7 @@ describe('GithubActionsWorkflow', () => {
     });
 
     // WHEN
-    new GithubActionsWorkflow(project);
+    new WorkflowBuildCheckDirty(project);
     const snapshot = synthSnapshot(project);
     const workflow = snapshot['.github/workflows/main.yml'];
 
@@ -80,7 +81,7 @@ describe('GithubActionsWorkflow', () => {
     });
 
     // WHEN
-    new GithubActionsWorkflow(project);
+    new WorkflowBuildCheckDirty(project);
     const snapshot = synthSnapshot(project);
     const workflow = snapshot['.github/workflows/main.yml'];
 
@@ -97,7 +98,7 @@ describe('GithubActionsWorkflow', () => {
     });
 
     // WHEN
-    new GithubActionsWorkflow(project);
+    new WorkflowBuildCheckDirty(project);
     const snapshot = synthSnapshot(project);
     const workflow = snapshot['.github/workflows/main.yml'];
 
@@ -117,7 +118,7 @@ describe('GithubActionsWorkflow', () => {
     });
 
     // WHEN
-    new GithubActionsWorkflow(project);
+    new WorkflowBuildCheckDirty(project);
     const snapshot = synthSnapshot(project);
     const workflow = snapshot['.github/workflows/main.yml'];
 
@@ -134,7 +135,7 @@ describe('GithubActionsWorkflow', () => {
     });
 
     // WHEN
-    new GithubActionsWorkflow(project);
+    new WorkflowBuildCheckDirty(project);
     const snapshot = synthSnapshot(project);
     const workflow = snapshot['.github/workflows/main.yml'];
 
@@ -151,7 +152,7 @@ describe('GithubActionsWorkflow', () => {
     });
 
     // WHEN
-    new GithubActionsWorkflow(project);
+    new WorkflowBuildCheckDirty(project);
     const snapshot = synthSnapshot(project);
     const workflow = snapshot['.github/workflows/main.yml'];
 
@@ -166,7 +167,7 @@ describe('GithubActionsWorkflow', () => {
     });
 
     // WHEN
-    new GithubActionsWorkflow(project);
+    new WorkflowBuildCheckDirty(project);
     const snapshot = synthSnapshot(project);
 
     // THEN

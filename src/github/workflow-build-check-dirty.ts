@@ -5,7 +5,7 @@ import { JobPermission } from 'projen/lib/github/workflows-model';
  * Component that manages the main GitHub Actions workflow.
  * This workflow installs tools using mise, runs build, and ensures the Git workspace is clean.
  */
-export class GithubActionsWorkflow extends projen.Component {
+export class WorkflowBuildCheckDirty extends projen.Component {
   constructor(project: projen.Project) {
     super(project);
 

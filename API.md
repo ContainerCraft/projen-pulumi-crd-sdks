@@ -2,188 +2,6 @@
 
 ## Constructs <a name="Constructs" id="Constructs"></a>
 
-### GithubActionsWorkflow <a name="GithubActionsWorkflow" id="@containercraft/projen-pulumi-crd-sdks.GithubActionsWorkflow"></a>
-
-Component that manages the main GitHub Actions workflow.
-
-This workflow installs tools using mise, runs build, and ensures the Git workspace is clean.
-
-#### Initializers <a name="Initializers" id="@containercraft/projen-pulumi-crd-sdks.GithubActionsWorkflow.Initializer"></a>
-
-```typescript
-import { GithubActionsWorkflow } from '@containercraft/projen-pulumi-crd-sdks'
-
-new GithubActionsWorkflow(project: Project)
-```
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#@containercraft/projen-pulumi-crd-sdks.GithubActionsWorkflow.Initializer.parameter.project">project</a></code> | <code>projen.Project</code> | *No description.* |
-
----
-
-##### `project`<sup>Required</sup> <a name="project" id="@containercraft/projen-pulumi-crd-sdks.GithubActionsWorkflow.Initializer.parameter.project"></a>
-
-- *Type:* projen.Project
-
----
-
-#### Methods <a name="Methods" id="Methods"></a>
-
-| **Name** | **Description** |
-| --- | --- |
-| <code><a href="#@containercraft/projen-pulumi-crd-sdks.GithubActionsWorkflow.toString">toString</a></code> | Returns a string representation of this construct. |
-| <code><a href="#@containercraft/projen-pulumi-crd-sdks.GithubActionsWorkflow.with">with</a></code> | Applies one or more mixins to this construct. |
-| <code><a href="#@containercraft/projen-pulumi-crd-sdks.GithubActionsWorkflow.postSynthesize">postSynthesize</a></code> | Called after synthesis. |
-| <code><a href="#@containercraft/projen-pulumi-crd-sdks.GithubActionsWorkflow.preSynthesize">preSynthesize</a></code> | Called before synthesis. |
-| <code><a href="#@containercraft/projen-pulumi-crd-sdks.GithubActionsWorkflow.synthesize">synthesize</a></code> | Synthesizes files to the project output directory. |
-
----
-
-##### `toString` <a name="toString" id="@containercraft/projen-pulumi-crd-sdks.GithubActionsWorkflow.toString"></a>
-
-```typescript
-public toString(): string
-```
-
-Returns a string representation of this construct.
-
-##### `with` <a name="with" id="@containercraft/projen-pulumi-crd-sdks.GithubActionsWorkflow.with"></a>
-
-```typescript
-public with(mixins: ...IMixin[]): IConstruct
-```
-
-Applies one or more mixins to this construct.
-
-Mixins are applied in order. The list of constructs is captured at the
-start of the call, so constructs added by a mixin will not be visited.
-Use multiple `with()` calls if subsequent mixins should apply to added
-constructs.
-
-###### `mixins`<sup>Required</sup> <a name="mixins" id="@containercraft/projen-pulumi-crd-sdks.GithubActionsWorkflow.with.parameter.mixins"></a>
-
-- *Type:* ...constructs.IMixin[]
-
-The mixins to apply.
-
----
-
-##### `postSynthesize` <a name="postSynthesize" id="@containercraft/projen-pulumi-crd-sdks.GithubActionsWorkflow.postSynthesize"></a>
-
-```typescript
-public postSynthesize(): void
-```
-
-Called after synthesis.
-
-Order is *not* guaranteed.
-
-##### `preSynthesize` <a name="preSynthesize" id="@containercraft/projen-pulumi-crd-sdks.GithubActionsWorkflow.preSynthesize"></a>
-
-```typescript
-public preSynthesize(): void
-```
-
-Called before synthesis.
-
-##### `synthesize` <a name="synthesize" id="@containercraft/projen-pulumi-crd-sdks.GithubActionsWorkflow.synthesize"></a>
-
-```typescript
-public synthesize(): void
-```
-
-Synthesizes files to the project output directory.
-
-#### Static Functions <a name="Static Functions" id="Static Functions"></a>
-
-| **Name** | **Description** |
-| --- | --- |
-| <code><a href="#@containercraft/projen-pulumi-crd-sdks.GithubActionsWorkflow.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
-| <code><a href="#@containercraft/projen-pulumi-crd-sdks.GithubActionsWorkflow.isComponent">isComponent</a></code> | Test whether the given construct is a component. |
-
----
-
-##### `isConstruct` <a name="isConstruct" id="@containercraft/projen-pulumi-crd-sdks.GithubActionsWorkflow.isConstruct"></a>
-
-```typescript
-import { GithubActionsWorkflow } from '@containercraft/projen-pulumi-crd-sdks'
-
-GithubActionsWorkflow.isConstruct(x: any)
-```
-
-Checks if `x` is a construct.
-
-Use this method instead of `instanceof` to properly detect `Construct`
-instances, even when the construct library is symlinked.
-
-Explanation: in JavaScript, multiple copies of the `constructs` library on
-disk are seen as independent, completely different libraries. As a
-consequence, the class `Construct` in each copy of the `constructs` library
-is seen as a different class, and an instance of one class will not test as
-`instanceof` the other class. `npm install` will not create installations
-like this, but users may manually symlink construct libraries together or
-use a monorepo tool: in those cases, multiple copies of the `constructs`
-library can be accidentally installed, and `instanceof` will behave
-unpredictably. It is safest to avoid using `instanceof`, and using
-this type-testing method instead.
-
-###### `x`<sup>Required</sup> <a name="x" id="@containercraft/projen-pulumi-crd-sdks.GithubActionsWorkflow.isConstruct.parameter.x"></a>
-
-- *Type:* any
-
-Any object.
-
----
-
-##### `isComponent` <a name="isComponent" id="@containercraft/projen-pulumi-crd-sdks.GithubActionsWorkflow.isComponent"></a>
-
-```typescript
-import { GithubActionsWorkflow } from '@containercraft/projen-pulumi-crd-sdks'
-
-GithubActionsWorkflow.isComponent(x: any)
-```
-
-Test whether the given construct is a component.
-
-###### `x`<sup>Required</sup> <a name="x" id="@containercraft/projen-pulumi-crd-sdks.GithubActionsWorkflow.isComponent.parameter.x"></a>
-
-- *Type:* any
-
----
-
-#### Properties <a name="Properties" id="Properties"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#@containercraft/projen-pulumi-crd-sdks.GithubActionsWorkflow.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@containercraft/projen-pulumi-crd-sdks.GithubActionsWorkflow.property.project">project</a></code> | <code>projen.Project</code> | *No description.* |
-
----
-
-##### `node`<sup>Required</sup> <a name="node" id="@containercraft/projen-pulumi-crd-sdks.GithubActionsWorkflow.property.node"></a>
-
-```typescript
-public readonly node: Node;
-```
-
-- *Type:* constructs.Node
-
-The tree node.
-
----
-
-##### `project`<sup>Required</sup> <a name="project" id="@containercraft/projen-pulumi-crd-sdks.GithubActionsWorkflow.property.project"></a>
-
-```typescript
-public readonly project: Project;
-```
-
-- *Type:* projen.Project
-
----
-
-
 ### PulumiCrdSdksProject <a name="PulumiCrdSdksProject" id="@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProject"></a>
 
 #### Initializers <a name="Initializers" id="@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProject.Initializer"></a>
@@ -941,7 +759,230 @@ this task should synthesize the project files.
 
 ---
 
+### WorkflowBuildCheckDirty <a name="WorkflowBuildCheckDirty" id="@containercraft/projen-pulumi-crd-sdks.github.WorkflowBuildCheckDirty"></a>
+
+Component that manages the main GitHub Actions workflow.
+
+This workflow installs tools using mise, runs build, and ensures the Git workspace is clean.
+
+#### Initializers <a name="Initializers" id="@containercraft/projen-pulumi-crd-sdks.github.WorkflowBuildCheckDirty.Initializer"></a>
+
+```typescript
+import { github } from '@containercraft/projen-pulumi-crd-sdks'
+
+new github.WorkflowBuildCheckDirty(project: Project)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@containercraft/projen-pulumi-crd-sdks.github.WorkflowBuildCheckDirty.Initializer.parameter.project">project</a></code> | <code>projen.Project</code> | *No description.* |
+
+---
+
+##### `project`<sup>Required</sup> <a name="project" id="@containercraft/projen-pulumi-crd-sdks.github.WorkflowBuildCheckDirty.Initializer.parameter.project"></a>
+
+- *Type:* projen.Project
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@containercraft/projen-pulumi-crd-sdks.github.WorkflowBuildCheckDirty.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@containercraft/projen-pulumi-crd-sdks.github.WorkflowBuildCheckDirty.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@containercraft/projen-pulumi-crd-sdks.github.WorkflowBuildCheckDirty.postSynthesize">postSynthesize</a></code> | Called after synthesis. |
+| <code><a href="#@containercraft/projen-pulumi-crd-sdks.github.WorkflowBuildCheckDirty.preSynthesize">preSynthesize</a></code> | Called before synthesis. |
+| <code><a href="#@containercraft/projen-pulumi-crd-sdks.github.WorkflowBuildCheckDirty.synthesize">synthesize</a></code> | Synthesizes files to the project output directory. |
+
+---
+
+##### `toString` <a name="toString" id="@containercraft/projen-pulumi-crd-sdks.github.WorkflowBuildCheckDirty.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@containercraft/projen-pulumi-crd-sdks.github.WorkflowBuildCheckDirty.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@containercraft/projen-pulumi-crd-sdks.github.WorkflowBuildCheckDirty.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+The mixins to apply.
+
+---
+
+##### `postSynthesize` <a name="postSynthesize" id="@containercraft/projen-pulumi-crd-sdks.github.WorkflowBuildCheckDirty.postSynthesize"></a>
+
+```typescript
+public postSynthesize(): void
+```
+
+Called after synthesis.
+
+Order is *not* guaranteed.
+
+##### `preSynthesize` <a name="preSynthesize" id="@containercraft/projen-pulumi-crd-sdks.github.WorkflowBuildCheckDirty.preSynthesize"></a>
+
+```typescript
+public preSynthesize(): void
+```
+
+Called before synthesis.
+
+##### `synthesize` <a name="synthesize" id="@containercraft/projen-pulumi-crd-sdks.github.WorkflowBuildCheckDirty.synthesize"></a>
+
+```typescript
+public synthesize(): void
+```
+
+Synthesizes files to the project output directory.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@containercraft/projen-pulumi-crd-sdks.github.WorkflowBuildCheckDirty.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@containercraft/projen-pulumi-crd-sdks.github.WorkflowBuildCheckDirty.isComponent">isComponent</a></code> | Test whether the given construct is a component. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="@containercraft/projen-pulumi-crd-sdks.github.WorkflowBuildCheckDirty.isConstruct"></a>
+
+```typescript
+import { github } from '@containercraft/projen-pulumi-crd-sdks'
+
+github.WorkflowBuildCheckDirty.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="@containercraft/projen-pulumi-crd-sdks.github.WorkflowBuildCheckDirty.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isComponent` <a name="isComponent" id="@containercraft/projen-pulumi-crd-sdks.github.WorkflowBuildCheckDirty.isComponent"></a>
+
+```typescript
+import { github } from '@containercraft/projen-pulumi-crd-sdks'
+
+github.WorkflowBuildCheckDirty.isComponent(x: any)
+```
+
+Test whether the given construct is a component.
+
+###### `x`<sup>Required</sup> <a name="x" id="@containercraft/projen-pulumi-crd-sdks.github.WorkflowBuildCheckDirty.isComponent.parameter.x"></a>
+
+- *Type:* any
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@containercraft/projen-pulumi-crd-sdks.github.WorkflowBuildCheckDirty.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@containercraft/projen-pulumi-crd-sdks.github.WorkflowBuildCheckDirty.property.project">project</a></code> | <code>projen.Project</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@containercraft/projen-pulumi-crd-sdks.github.WorkflowBuildCheckDirty.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `project`<sup>Required</sup> <a name="project" id="@containercraft/projen-pulumi-crd-sdks.github.WorkflowBuildCheckDirty.property.project"></a>
+
+```typescript
+public readonly project: Project;
+```
+
+- *Type:* projen.Project
+
+---
+
+
 ## Structs <a name="Structs" id="Structs"></a>
+
+### GithubRepository <a name="GithubRepository" id="@containercraft/projen-pulumi-crd-sdks.github.GithubRepository"></a>
+
+Github location of the upstream project to track for new releases.
+
+#### Initializer <a name="Initializer" id="@containercraft/projen-pulumi-crd-sdks.github.GithubRepository.Initializer"></a>
+
+```typescript
+import { github } from '@containercraft/projen-pulumi-crd-sdks'
+
+const githubRepository: github.GithubRepository = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@containercraft/projen-pulumi-crd-sdks.github.GithubRepository.property.owner">owner</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@containercraft/projen-pulumi-crd-sdks.github.GithubRepository.property.repository">repository</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `owner`<sup>Required</sup> <a name="owner" id="@containercraft/projen-pulumi-crd-sdks.github.GithubRepository.property.owner"></a>
+
+```typescript
+public readonly owner: string;
+```
+
+- *Type:* string
+
+---
+
+##### `repository`<sup>Required</sup> <a name="repository" id="@containercraft/projen-pulumi-crd-sdks.github.GithubRepository.property.repository"></a>
+
+```typescript
+public readonly repository: string;
+```
+
+- *Type:* string
+
+---
 
 ### PulumiCrdSdksProjectOptions <a name="PulumiCrdSdksProjectOptions" id="@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProjectOptions"></a>
 
@@ -971,6 +1012,7 @@ const pulumiCrdSdksProjectOptions: PulumiCrdSdksProjectOptions = { ... }
 | <code><a href="#@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProjectOptions.property.renovatebot">renovatebot</a></code> | <code>boolean</code> | Use renovatebot to handle dependency upgrades. |
 | <code><a href="#@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProjectOptions.property.renovatebotOptions">renovatebotOptions</a></code> | <code>projen.RenovatebotOptions</code> | Options for renovatebot. |
 | <code><a href="#@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProjectOptions.property.crdUrls">crdUrls</a></code> | <code>string[]</code> | List of HTTPS URLs containing the ${VERSION} placeholder. |
+| <code><a href="#@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProjectOptions.property.upstreamProject">upstreamProject</a></code> | <code>@containercraft/projen-pulumi-crd-sdks.github.GithubRepository</code> | Github location of the upstream project to track for new releases. |
 
 ---
 
@@ -1157,6 +1199,18 @@ public readonly crdUrls: string[];
 - *Type:* string[]
 
 List of HTTPS URLs containing the ${VERSION} placeholder.
+
+---
+
+##### `upstreamProject`<sup>Optional</sup> <a name="upstreamProject" id="@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProjectOptions.property.upstreamProject"></a>
+
+```typescript
+public readonly upstreamProject: GithubRepository;
+```
+
+- *Type:* @containercraft/projen-pulumi-crd-sdks.github.GithubRepository
+
+Github location of the upstream project to track for new releases.
 
 ---
 

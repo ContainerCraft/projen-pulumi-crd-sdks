@@ -1,10 +1,18 @@
 import { IResolver, License, Makefile, Project, ProjectOptions, TextFile } from 'projen';
 import { GitHub } from 'projen/lib/github';
 import { ProjenrcTs } from 'projen/lib/typescript';
-import { GithubActionsWorkflow } from './github-actions-workflow';
 
-export interface PulumiCrdSdksProjectOptions
-  extends ProjectOptions {
+// import { WorkflowBuildCheckDirty, GithubRepository } from './github';
+import * as github from './github';
+
+export interface PulumiCrdSdksProjectOptions extends ProjectOptions {
+  /**
+   * Github location of the upstream project to track for new releases.
+   *
+   * @featured
+   */
+  readonly upstreamProject?: github.GithubRepository;
+
   /**
    * List of HTTPS URLs containing the ${VERSION} placeholder.
    *
@@ -19,18 +27,6 @@ export class PulumiCrdSdksProject extends Project {
 
   constructor(options: PulumiCrdSdksProjectOptions) {
     super(options);
-
-    this.github = new GitHub(this, {
-      mergify: false,
-      pullRequestLint: false,
-    });
-
-    // Generate a `.projenrc.ts` file
-    new ProjenrcTs(this, {});
-
-    if (options.crdUrls?.length === 0) {
-      throw new Error('crdUrls cannot be empty');
-    }
 
     const projectIdentifiers = options.crdUrls?.map((url) => {
       try {
@@ -52,6 +48,18 @@ export class PulumiCrdSdksProject extends Project {
       throw new Error('All crdUrls must point to the same project');
     }
 
+    this.github = new GitHub(this, {
+      mergify: false,
+      pullRequestLint: false,
+    });
+
+    // Generate a `.projenrc.ts` file
+    new ProjenrcTs(this, {});
+
+    if (options.crdUrls?.length === 0) {
+      throw new Error('crdUrls cannot be empty');
+    }
+
     new License(this, {
       spdx: 'Apache-2.0',
       copyrightOwner: 'Containercraft.io',
@@ -65,7 +73,7 @@ export class PulumiCrdSdksProject extends Project {
       ],
     });
 
-    new GithubActionsWorkflow(this);
+    new github.WorkflowBuildCheckDirty(this);
 
     const crdUrls = options.crdUrls;
     const makefile = new (class extends Makefile {
