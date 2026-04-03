@@ -943,28 +943,67 @@ public readonly project: Project;
 
 ## Structs <a name="Structs" id="Structs"></a>
 
-### GithubRepository <a name="GithubRepository" id="@containercraft/projen-pulumi-crd-sdks.github.GithubRepository"></a>
+### DotnetPackageInfo <a name="DotnetPackageInfo" id="@containercraft/projen-pulumi-crd-sdks.DotnetPackageInfo"></a>
 
-Github location of the upstream project to track for new releases.
-
-#### Initializer <a name="Initializer" id="@containercraft/projen-pulumi-crd-sdks.github.GithubRepository.Initializer"></a>
+#### Initializer <a name="Initializer" id="@containercraft/projen-pulumi-crd-sdks.DotnetPackageInfo.Initializer"></a>
 
 ```typescript
-import { github } from '@containercraft/projen-pulumi-crd-sdks'
+import { DotnetPackageInfo } from '@containercraft/projen-pulumi-crd-sdks'
 
-const githubRepository: github.GithubRepository = { ... }
+const dotnetPackageInfo: DotnetPackageInfo = { ... }
 ```
 
 #### Properties <a name="Properties" id="Properties"></a>
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@containercraft/projen-pulumi-crd-sdks.github.GithubRepository.property.owner">owner</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@containercraft/projen-pulumi-crd-sdks.github.GithubRepository.property.repository">repository</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@containercraft/projen-pulumi-crd-sdks.DotnetPackageInfo.property.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@containercraft/projen-pulumi-crd-sdks.DotnetPackageInfo.property.namespace">namespace</a></code> | <code>string</code> | *No description.* |
 
 ---
 
-##### `owner`<sup>Required</sup> <a name="owner" id="@containercraft/projen-pulumi-crd-sdks.github.GithubRepository.property.owner"></a>
+##### `name`<sup>Required</sup> <a name="name" id="@containercraft/projen-pulumi-crd-sdks.DotnetPackageInfo.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+---
+
+##### `namespace`<sup>Optional</sup> <a name="namespace" id="@containercraft/projen-pulumi-crd-sdks.DotnetPackageInfo.property.namespace"></a>
+
+```typescript
+public readonly namespace: string;
+```
+
+- *Type:* string
+
+---
+
+### GithubRepository <a name="GithubRepository" id="@containercraft/projen-pulumi-crd-sdks.GithubRepository"></a>
+
+Github location of the upstream project to track for new releases.
+
+#### Initializer <a name="Initializer" id="@containercraft/projen-pulumi-crd-sdks.GithubRepository.Initializer"></a>
+
+```typescript
+import { GithubRepository } from '@containercraft/projen-pulumi-crd-sdks'
+
+const githubRepository: GithubRepository = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@containercraft/projen-pulumi-crd-sdks.GithubRepository.property.owner">owner</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@containercraft/projen-pulumi-crd-sdks.GithubRepository.property.repository">repository</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `owner`<sup>Required</sup> <a name="owner" id="@containercraft/projen-pulumi-crd-sdks.GithubRepository.property.owner"></a>
 
 ```typescript
 public readonly owner: string;
@@ -974,10 +1013,88 @@ public readonly owner: string;
 
 ---
 
-##### `repository`<sup>Required</sup> <a name="repository" id="@containercraft/projen-pulumi-crd-sdks.github.GithubRepository.property.repository"></a>
+##### `repository`<sup>Required</sup> <a name="repository" id="@containercraft/projen-pulumi-crd-sdks.GithubRepository.property.repository"></a>
 
 ```typescript
 public readonly repository: string;
+```
+
+- *Type:* string
+
+---
+
+### JavaPackageInfo <a name="JavaPackageInfo" id="@containercraft/projen-pulumi-crd-sdks.JavaPackageInfo"></a>
+
+#### Initializer <a name="Initializer" id="@containercraft/projen-pulumi-crd-sdks.JavaPackageInfo.Initializer"></a>
+
+```typescript
+import { JavaPackageInfo } from '@containercraft/projen-pulumi-crd-sdks'
+
+const javaPackageInfo: JavaPackageInfo = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@containercraft/projen-pulumi-crd-sdks.JavaPackageInfo.property.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@containercraft/projen-pulumi-crd-sdks.JavaPackageInfo.property.basePackage">basePackage</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="@containercraft/projen-pulumi-crd-sdks.JavaPackageInfo.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+---
+
+##### `basePackage`<sup>Optional</sup> <a name="basePackage" id="@containercraft/projen-pulumi-crd-sdks.JavaPackageInfo.property.basePackage"></a>
+
+```typescript
+public readonly basePackage: string;
+```
+
+- *Type:* string
+
+---
+
+### NodePackageInfo <a name="NodePackageInfo" id="@containercraft/projen-pulumi-crd-sdks.NodePackageInfo"></a>
+
+#### Initializer <a name="Initializer" id="@containercraft/projen-pulumi-crd-sdks.NodePackageInfo.Initializer"></a>
+
+```typescript
+import { NodePackageInfo } from '@containercraft/projen-pulumi-crd-sdks'
+
+const nodePackageInfo: NodePackageInfo = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@containercraft/projen-pulumi-crd-sdks.NodePackageInfo.property.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@containercraft/projen-pulumi-crd-sdks.NodePackageInfo.property.namespace">namespace</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="@containercraft/projen-pulumi-crd-sdks.NodePackageInfo.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+---
+
+##### `namespace`<sup>Optional</sup> <a name="namespace" id="@containercraft/projen-pulumi-crd-sdks.NodePackageInfo.property.namespace"></a>
+
+```typescript
+public readonly namespace: string;
 ```
 
 - *Type:* string
@@ -998,21 +1115,21 @@ const packageNames: PackageNames = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@containercraft/projen-pulumi-crd-sdks.PackageNames.property.dotnet">dotnet</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@containercraft/projen-pulumi-crd-sdks.PackageNames.property.dotnet">dotnet</a></code> | <code><a href="#@containercraft/projen-pulumi-crd-sdks.DotnetPackageInfo">DotnetPackageInfo</a></code> | *No description.* |
 | <code><a href="#@containercraft/projen-pulumi-crd-sdks.PackageNames.property.go">go</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@containercraft/projen-pulumi-crd-sdks.PackageNames.property.node">node</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@containercraft/projen-pulumi-crd-sdks.PackageNames.property.python">python</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@containercraft/projen-pulumi-crd-sdks.PackageNames.property.java">java</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@containercraft/projen-pulumi-crd-sdks.PackageNames.property.node">node</a></code> | <code><a href="#@containercraft/projen-pulumi-crd-sdks.NodePackageInfo">NodePackageInfo</a></code> | *No description.* |
+| <code><a href="#@containercraft/projen-pulumi-crd-sdks.PackageNames.property.python">python</a></code> | <code><a href="#@containercraft/projen-pulumi-crd-sdks.PythonPackageInfo">PythonPackageInfo</a></code> | *No description.* |
+| <code><a href="#@containercraft/projen-pulumi-crd-sdks.PackageNames.property.java">java</a></code> | <code><a href="#@containercraft/projen-pulumi-crd-sdks.JavaPackageInfo">JavaPackageInfo</a></code> | *No description.* |
 
 ---
 
 ##### `dotnet`<sup>Required</sup> <a name="dotnet" id="@containercraft/projen-pulumi-crd-sdks.PackageNames.property.dotnet"></a>
 
 ```typescript
-public readonly dotnet: string;
+public readonly dotnet: DotnetPackageInfo;
 ```
 
-- *Type:* string
+- *Type:* <a href="#@containercraft/projen-pulumi-crd-sdks.DotnetPackageInfo">DotnetPackageInfo</a>
 
 ---
 
@@ -1029,30 +1146,30 @@ public readonly go: string;
 ##### `node`<sup>Required</sup> <a name="node" id="@containercraft/projen-pulumi-crd-sdks.PackageNames.property.node"></a>
 
 ```typescript
-public readonly node: string;
+public readonly node: NodePackageInfo;
 ```
 
-- *Type:* string
+- *Type:* <a href="#@containercraft/projen-pulumi-crd-sdks.NodePackageInfo">NodePackageInfo</a>
 
 ---
 
 ##### `python`<sup>Required</sup> <a name="python" id="@containercraft/projen-pulumi-crd-sdks.PackageNames.property.python"></a>
 
 ```typescript
-public readonly python: string;
+public readonly python: PythonPackageInfo;
 ```
 
-- *Type:* string
+- *Type:* <a href="#@containercraft/projen-pulumi-crd-sdks.PythonPackageInfo">PythonPackageInfo</a>
 
 ---
 
 ##### `java`<sup>Optional</sup> <a name="java" id="@containercraft/projen-pulumi-crd-sdks.PackageNames.property.java"></a>
 
 ```typescript
-public readonly java: string;
+public readonly java: JavaPackageInfo;
 ```
 
-- *Type:* string
+- *Type:* <a href="#@containercraft/projen-pulumi-crd-sdks.JavaPackageInfo">JavaPackageInfo</a>
 
 ---
 
@@ -1086,7 +1203,7 @@ const pulumiCrdSdksProjectOptions: PulumiCrdSdksProjectOptions = { ... }
 | <code><a href="#@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProjectOptions.property.packageNames">packageNames</a></code> | <code><a href="#@containercraft/projen-pulumi-crd-sdks.PackageNames">PackageNames</a></code> | Package names for the generated Pulumi SDKs. |
 | <code><a href="#@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProjectOptions.property.crdUrls">crdUrls</a></code> | <code>string[]</code> | List of HTTPS URLs containing the ${VERSION} placeholder. |
 | <code><a href="#@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProjectOptions.property.latestVersionOnBranch">latestVersionOnBranch</a></code> | <code>string</code> | Latest version of the SDKs released on this branch. |
-| <code><a href="#@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProjectOptions.property.upstreamProject">upstreamProject</a></code> | <code>@containercraft/projen-pulumi-crd-sdks.github.GithubRepository</code> | Github location of the upstream project to track for new releases. |
+| <code><a href="#@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProjectOptions.property.upstreamProject">upstreamProject</a></code> | <code><a href="#@containercraft/projen-pulumi-crd-sdks.GithubRepository">GithubRepository</a></code> | Github location of the upstream project to track for new releases. |
 
 ---
 
@@ -1310,9 +1427,48 @@ This should be a semantic version (MAJOR.MINOR.PATCH), without a preceding 'v'.
 public readonly upstreamProject: GithubRepository;
 ```
 
-- *Type:* @containercraft/projen-pulumi-crd-sdks.github.GithubRepository
+- *Type:* <a href="#@containercraft/projen-pulumi-crd-sdks.GithubRepository">GithubRepository</a>
 
 Github location of the upstream project to track for new releases.
+
+---
+
+### PythonPackageInfo <a name="PythonPackageInfo" id="@containercraft/projen-pulumi-crd-sdks.PythonPackageInfo"></a>
+
+#### Initializer <a name="Initializer" id="@containercraft/projen-pulumi-crd-sdks.PythonPackageInfo.Initializer"></a>
+
+```typescript
+import { PythonPackageInfo } from '@containercraft/projen-pulumi-crd-sdks'
+
+const pythonPackageInfo: PythonPackageInfo = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@containercraft/projen-pulumi-crd-sdks.PythonPackageInfo.property.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@containercraft/projen-pulumi-crd-sdks.PythonPackageInfo.property.prefix">prefix</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="@containercraft/projen-pulumi-crd-sdks.PythonPackageInfo.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+---
+
+##### `prefix`<sup>Optional</sup> <a name="prefix" id="@containercraft/projen-pulumi-crd-sdks.PythonPackageInfo.property.prefix"></a>
+
+```typescript
+public readonly prefix: string;
+```
+
+- *Type:* string
 
 ---
 

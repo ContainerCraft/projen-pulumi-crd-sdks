@@ -5,11 +5,23 @@ import { PackageNames, PulumiCrdSdksProject } from '../../src';
 import { WorkflowBuildCheckDirty } from '../../src/github';
 
 const packageNames: PackageNames = {
-  node: '@owner/package',
-  python: 'owner_package',
-  dotnet: 'Owner.Package',
+  node: {
+    name: 'package',
+    namespace: 'owner',
+  },
+  python: {
+    name: 'package',
+    prefix: 'owner',
+  },
+  dotnet: {
+    name: 'Package',
+    namespace: 'Owner',
+  },
   go: 'example',
-  java: 'com.owner.package',
+  java: {
+    name: 'crdpackage',
+    basePackage: 'com.owner',
+  },
 };
 
 describe('WorkflowBuildCheckDirty', () => {

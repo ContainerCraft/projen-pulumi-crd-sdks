@@ -1,12 +1,24 @@
 import { synthSnapshot } from 'projen/lib/util/synth';
-import { PackageNames, PulumiCrdSdksProject } from '../src/projen-pulumi-crd-sdks';
+import { PackageNames, PulumiCrdSdksProject } from '../src';
 
 const packageNames: PackageNames = {
-  node: '@owner/package',
-  python: 'owner_package',
-  dotnet: 'Owner.Package',
+  node: {
+    name: '/package',
+    namespace: '@owner',
+  },
+  python: {
+    name: 'package',
+    prefix: 'owner',
+  },
+  dotnet: {
+    name: 'Package',
+    namespace: 'Owner',
+  },
   go: 'example',
-  java: 'com.owner.package',
+  java: {
+    name: 'crdpackage',
+    basePackage: 'com.owner',
+  },
 };
 
 describe('PulumiCrdSdksProject', () => {
