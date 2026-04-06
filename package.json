@@ -38,7 +38,7 @@
     "@jsii/spec": "^1.127.0",
     "@stylistic/eslint-plugin": "^2",
     "@types/jest": "^30.0.0",
-    "@types/node": "^25.5.0",
+    "@types/node": "^25.5.2",
     "@typescript-eslint/eslint-plugin": "^8",
     "@typescript-eslint/parser": "^8",
     "commit-and-tag-version": "^12",
@@ -53,18 +53,18 @@
     "jsii-docgen": "^10.5.0",
     "jsii-pacmak": "^1.127.0",
     "jsii-rosetta": "~5.9.0",
-    "projen": "^0.99.21",
-    "ts-jest": "^29.4.6",
+    "projen": "^0.99.34",
+    "ts-jest": "^29.4.9",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.3"
   },
   "peerDependencies": {
-    "constructs": "^10.5.1",
-    "projen": "^0.99.21"
+    "constructs": "^10.6.0",
+    "projen": "^0.99.34"
   },
   "dependencies": {
-    "constructs": "^10.5.1",
-    "projen": "^0.99.21"
+    "constructs": "^10.6.0",
+    "projen": "^0.99.34"
   },
   "keywords": [
     "crd-sdks",
@@ -72,6 +72,12 @@
     "projen",
     "pulumi"
   ],
+  "devEngines": {
+    "packageManager": {
+      "name": "npm",
+      "onFail": "ignore"
+    }
+  },
   "main": "lib/index.js",
   "license": "Apache-2.0",
   "homepage": "https://github.com/ContainerCraft/projen-pulumi-crd-sdks",
