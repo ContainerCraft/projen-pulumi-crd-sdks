@@ -1,21 +1,21 @@
 import { synthSnapshot } from 'projen/lib/util/synth';
-import { PackageNames, PulumiCrdSdksProject } from '../src';
+import { PulumiCrdSdksProject } from '../src';
 
-const packageNames: PackageNames = {
-  node: {
+const packageNames = {
+  nodePackage: {
     name: '/package',
     namespace: '@owner',
   },
-  python: {
+  pythonPackage: {
     name: 'package',
     prefix: 'owner',
   },
-  dotnet: {
+  dotnetPackage: {
     name: 'Package',
     namespace: 'Owner',
   },
-  go: 'example',
-  java: {
+  goPackage: 'example',
+  javaPackage: {
     name: 'crdpackage',
     basePackage: 'com.owner',
   },
@@ -26,8 +26,13 @@ describe('PulumiCrdSdksProject', () => {
     // GIVEN
     const project = new PulumiCrdSdksProject({
       name: 'pulumi-k8s-cert-manager',
+      latestVersionOnBranch: '1.0.0',
       crdUrls: ['https://example.com/crds.yaml'],
-      packageNames: packageNames,
+      upstreamProject: {
+        owner: 'cert-manager',
+        repository: 'cert-manager',
+      },
+      ...packageNames,
     });
 
     // WHEN
@@ -43,8 +48,13 @@ describe('PulumiCrdSdksProject', () => {
     // GIVEN
     const project = new PulumiCrdSdksProject({
       name: 'pulumi-k8s-cert-manager',
+      latestVersionOnBranch: '1.0.0',
       crdUrls: ['https://example.com/crds.yaml'],
-      packageNames: packageNames,
+      upstreamProject: {
+        owner: 'cert-manager',
+        repository: 'cert-manager',
+      },
+      ...packageNames,
     });
 
     // WHEN
@@ -64,7 +74,11 @@ describe('PulumiCrdSdksProject', () => {
         'https://raw.githubusercontent.com/cert-manager/cert-manager/v${VERSION}/deploy/charts/cert-manager/templates/another.yaml',
       ],
       latestVersionOnBranch: '1.0.0',
-      packageNames: packageNames,
+      upstreamProject: {
+        owner: 'cert-manager',
+        repository: 'cert-manager',
+      },
+      ...packageNames,
     });
 
     // WHEN
@@ -84,8 +98,13 @@ describe('PulumiCrdSdksProject', () => {
     // GIVEN
     const options = {
       name: 'pulumi-k8s-cert-manager',
+      latestVersionOnBranch: '1.0.0',
       crdUrls: [],
-      packageNames: packageNames,
+      upstreamProject: {
+        owner: 'cert-manager',
+        repository: 'cert-manager',
+      },
+      ...packageNames,
     };
 
     // WHEN & THEN
@@ -98,11 +117,16 @@ describe('PulumiCrdSdksProject', () => {
     // GIVEN
     const options = {
       name: 'pulumi-k8s-mixed',
+      latestVersionOnBranch: '1.0.0',
       crdUrls: [
         'https://raw.githubusercontent.com/cert-manager/cert-manager/v${VERSION}/deploy/charts/cert-manager/templates/crds.yaml',
         'https://raw.githubusercontent.com/external-secrets/external-secrets/v${VERSION}/deploy/crds/bundle.yaml',
       ],
-      packageNames: packageNames,
+      upstreamProject: {
+        owner: 'cert-manager',
+        repository: 'cert-manager',
+      },
+      ...packageNames,
     };
 
     // WHEN & THEN
@@ -115,11 +139,16 @@ describe('PulumiCrdSdksProject', () => {
     // GIVEN
     const project = new PulumiCrdSdksProject({
       name: 'pulumi-k8s-github',
+      latestVersionOnBranch: '1.0.0',
       crdUrls: [
         'https://github.com/cert-manager/cert-manager/raw/v${VERSION}/deploy/charts/cert-manager/templates/crds.yaml',
         'https://github.com/cert-manager/cert-manager/raw/v${VERSION}/deploy/charts/cert-manager/templates/another.yaml',
       ],
-      packageNames: packageNames,
+      upstreamProject: {
+        owner: 'cert-manager',
+        repository: 'cert-manager',
+      },
+      ...packageNames,
     });
 
     // WHEN
@@ -135,8 +164,13 @@ describe('PulumiCrdSdksProject', () => {
     // GIVEN
     const options = {
       name: 'pulumi-k8s-invalid',
+      latestVersionOnBranch: '1.0.0',
       crdUrls: ['invalid-url', 'invalid-url'],
-      packageNames: packageNames,
+      upstreamProject: {
+        owner: 'cert-manager',
+        repository: 'cert-manager',
+      },
+      ...packageNames,
     };
 
     // WHEN

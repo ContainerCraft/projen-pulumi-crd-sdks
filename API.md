@@ -957,8 +957,8 @@ const dotnetPackageInfo: DotnetPackageInfo = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@containercraft/projen-pulumi-crd-sdks.DotnetPackageInfo.property.name">name</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@containercraft/projen-pulumi-crd-sdks.DotnetPackageInfo.property.namespace">namespace</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@containercraft/projen-pulumi-crd-sdks.DotnetPackageInfo.property.name">name</a></code> | <code>string</code> | Name of the .NET Nuget package. |
+| <code><a href="#@containercraft/projen-pulumi-crd-sdks.DotnetPackageInfo.property.namespace">namespace</a></code> | <code>string</code> | Namespace of the .NET Nuget package. |
 
 ---
 
@@ -969,8 +969,18 @@ public readonly name: string;
 ```
 
 - *Type:* string
+- *Default:* ""
+
+Name of the .NET Nuget package.
 
 ---
+
+*Example*
+
+```typescript
+"CertManager"
+```
+
 
 ##### `namespace`<sup>Optional</sup> <a name="namespace" id="@containercraft/projen-pulumi-crd-sdks.DotnetPackageInfo.property.namespace"></a>
 
@@ -979,6 +989,9 @@ public readonly namespace: string;
 ```
 
 - *Type:* string
+- *Default:* ""
+
+Namespace of the .NET Nuget package.
 
 ---
 
@@ -998,8 +1011,8 @@ const githubRepository: GithubRepository = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@containercraft/projen-pulumi-crd-sdks.GithubRepository.property.owner">owner</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@containercraft/projen-pulumi-crd-sdks.GithubRepository.property.repository">repository</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@containercraft/projen-pulumi-crd-sdks.GithubRepository.property.owner">owner</a></code> | <code>string</code> | Github owner (user or organization) of the upstream project. |
+| <code><a href="#@containercraft/projen-pulumi-crd-sdks.GithubRepository.property.repository">repository</a></code> | <code>string</code> | Github repository of the upstream project. |
 
 ---
 
@@ -1010,8 +1023,18 @@ public readonly owner: string;
 ```
 
 - *Type:* string
+- *Default:* ""
+
+Github owner (user or organization) of the upstream project.
 
 ---
+
+*Example*
+
+```typescript
+"cert-manager"
+```
+
 
 ##### `repository`<sup>Required</sup> <a name="repository" id="@containercraft/projen-pulumi-crd-sdks.GithubRepository.property.repository"></a>
 
@@ -1020,8 +1043,18 @@ public readonly repository: string;
 ```
 
 - *Type:* string
+- *Default:* ""
+
+Github repository of the upstream project.
 
 ---
+
+*Example*
+
+```typescript
+"cert-manager"
+```
+
 
 ### JavaPackageInfo <a name="JavaPackageInfo" id="@containercraft/projen-pulumi-crd-sdks.JavaPackageInfo"></a>
 
@@ -1037,7 +1070,7 @@ const javaPackageInfo: JavaPackageInfo = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@containercraft/projen-pulumi-crd-sdks.JavaPackageInfo.property.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@containercraft/projen-pulumi-crd-sdks.JavaPackageInfo.property.name">name</a></code> | <code>string</code> | Name of the Java package. |
 | <code><a href="#@containercraft/projen-pulumi-crd-sdks.JavaPackageInfo.property.basePackage">basePackage</a></code> | <code>string</code> | *No description.* |
 
 ---
@@ -1049,8 +1082,18 @@ public readonly name: string;
 ```
 
 - *Type:* string
+- *Default:* ""
+
+Name of the Java package.
 
 ---
+
+*Example*
+
+```typescript
+"certmanager"
+```
+
 
 ##### `basePackage`<sup>Optional</sup> <a name="basePackage" id="@containercraft/projen-pulumi-crd-sdks.JavaPackageInfo.property.basePackage"></a>
 
@@ -1076,7 +1119,7 @@ const nodePackageInfo: NodePackageInfo = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@containercraft/projen-pulumi-crd-sdks.NodePackageInfo.property.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@containercraft/projen-pulumi-crd-sdks.NodePackageInfo.property.name">name</a></code> | <code>string</code> | Name of the NPM package. |
 | <code><a href="#@containercraft/projen-pulumi-crd-sdks.NodePackageInfo.property.namespace">namespace</a></code> | <code>string</code> | *No description.* |
 
 ---
@@ -1088,8 +1131,18 @@ public readonly name: string;
 ```
 
 - *Type:* string
+- *Default:* ""
+
+Name of the NPM package.
 
 ---
+
+*Example*
+
+```typescript
+"cert-manager"
+```
+
 
 ##### `namespace`<sup>Optional</sup> <a name="namespace" id="@containercraft/projen-pulumi-crd-sdks.NodePackageInfo.property.namespace"></a>
 
@@ -1098,78 +1151,6 @@ public readonly namespace: string;
 ```
 
 - *Type:* string
-
----
-
-### PackageNames <a name="PackageNames" id="@containercraft/projen-pulumi-crd-sdks.PackageNames"></a>
-
-#### Initializer <a name="Initializer" id="@containercraft/projen-pulumi-crd-sdks.PackageNames.Initializer"></a>
-
-```typescript
-import { PackageNames } from '@containercraft/projen-pulumi-crd-sdks'
-
-const packageNames: PackageNames = { ... }
-```
-
-#### Properties <a name="Properties" id="Properties"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#@containercraft/projen-pulumi-crd-sdks.PackageNames.property.dotnet">dotnet</a></code> | <code><a href="#@containercraft/projen-pulumi-crd-sdks.DotnetPackageInfo">DotnetPackageInfo</a></code> | *No description.* |
-| <code><a href="#@containercraft/projen-pulumi-crd-sdks.PackageNames.property.go">go</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@containercraft/projen-pulumi-crd-sdks.PackageNames.property.node">node</a></code> | <code><a href="#@containercraft/projen-pulumi-crd-sdks.NodePackageInfo">NodePackageInfo</a></code> | *No description.* |
-| <code><a href="#@containercraft/projen-pulumi-crd-sdks.PackageNames.property.python">python</a></code> | <code><a href="#@containercraft/projen-pulumi-crd-sdks.PythonPackageInfo">PythonPackageInfo</a></code> | *No description.* |
-| <code><a href="#@containercraft/projen-pulumi-crd-sdks.PackageNames.property.java">java</a></code> | <code><a href="#@containercraft/projen-pulumi-crd-sdks.JavaPackageInfo">JavaPackageInfo</a></code> | *No description.* |
-
----
-
-##### `dotnet`<sup>Required</sup> <a name="dotnet" id="@containercraft/projen-pulumi-crd-sdks.PackageNames.property.dotnet"></a>
-
-```typescript
-public readonly dotnet: DotnetPackageInfo;
-```
-
-- *Type:* <a href="#@containercraft/projen-pulumi-crd-sdks.DotnetPackageInfo">DotnetPackageInfo</a>
-
----
-
-##### `go`<sup>Required</sup> <a name="go" id="@containercraft/projen-pulumi-crd-sdks.PackageNames.property.go"></a>
-
-```typescript
-public readonly go: string;
-```
-
-- *Type:* string
-
----
-
-##### `node`<sup>Required</sup> <a name="node" id="@containercraft/projen-pulumi-crd-sdks.PackageNames.property.node"></a>
-
-```typescript
-public readonly node: NodePackageInfo;
-```
-
-- *Type:* <a href="#@containercraft/projen-pulumi-crd-sdks.NodePackageInfo">NodePackageInfo</a>
-
----
-
-##### `python`<sup>Required</sup> <a name="python" id="@containercraft/projen-pulumi-crd-sdks.PackageNames.property.python"></a>
-
-```typescript
-public readonly python: PythonPackageInfo;
-```
-
-- *Type:* <a href="#@containercraft/projen-pulumi-crd-sdks.PythonPackageInfo">PythonPackageInfo</a>
-
----
-
-##### `java`<sup>Optional</sup> <a name="java" id="@containercraft/projen-pulumi-crd-sdks.PackageNames.property.java"></a>
-
-```typescript
-public readonly java: JavaPackageInfo;
-```
-
-- *Type:* <a href="#@containercraft/projen-pulumi-crd-sdks.JavaPackageInfo">JavaPackageInfo</a>
 
 ---
 
@@ -1200,9 +1181,13 @@ const pulumiCrdSdksProjectOptions: PulumiCrdSdksProjectOptions = { ... }
 | <code><a href="#@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProjectOptions.property.projenrcJsonOptions">projenrcJsonOptions</a></code> | <code>projen.ProjenrcJsonOptions</code> | Options for .projenrc.json. |
 | <code><a href="#@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProjectOptions.property.renovatebot">renovatebot</a></code> | <code>boolean</code> | Use renovatebot to handle dependency upgrades. |
 | <code><a href="#@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProjectOptions.property.renovatebotOptions">renovatebotOptions</a></code> | <code>projen.RenovatebotOptions</code> | Options for renovatebot. |
-| <code><a href="#@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProjectOptions.property.packageNames">packageNames</a></code> | <code><a href="#@containercraft/projen-pulumi-crd-sdks.PackageNames">PackageNames</a></code> | Package names for the generated Pulumi SDKs. |
 | <code><a href="#@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProjectOptions.property.crdUrls">crdUrls</a></code> | <code>string[]</code> | List of HTTPS URLs containing the ${VERSION} placeholder. |
 | <code><a href="#@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProjectOptions.property.latestVersionOnBranch">latestVersionOnBranch</a></code> | <code>string</code> | Latest version of the SDKs released on this branch. |
+| <code><a href="#@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProjectOptions.property.dotnetPackage">dotnetPackage</a></code> | <code><a href="#@containercraft/projen-pulumi-crd-sdks.DotnetPackageInfo">DotnetPackageInfo</a></code> | .NET Nuget package details. |
+| <code><a href="#@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProjectOptions.property.goPackage">goPackage</a></code> | <code>string</code> | Go package details. |
+| <code><a href="#@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProjectOptions.property.javaPackage">javaPackage</a></code> | <code><a href="#@containercraft/projen-pulumi-crd-sdks.JavaPackageInfo">JavaPackageInfo</a></code> | Java package details. |
+| <code><a href="#@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProjectOptions.property.nodePackage">nodePackage</a></code> | <code><a href="#@containercraft/projen-pulumi-crd-sdks.NodePackageInfo">NodePackageInfo</a></code> | NPM package details. |
+| <code><a href="#@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProjectOptions.property.pythonPackage">pythonPackage</a></code> | <code><a href="#@containercraft/projen-pulumi-crd-sdks.PythonPackageInfo">PythonPackageInfo</a></code> | Python package details. |
 | <code><a href="#@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProjectOptions.property.upstreamProject">upstreamProject</a></code> | <code><a href="#@containercraft/projen-pulumi-crd-sdks.GithubRepository">GithubRepository</a></code> | Github location of the upstream project to track for new releases. |
 
 ---
@@ -1381,43 +1366,92 @@ Options for renovatebot.
 
 ---
 
-##### `packageNames`<sup>Required</sup> <a name="packageNames" id="@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProjectOptions.property.packageNames"></a>
-
-```typescript
-public readonly packageNames: PackageNames;
-```
-
-- *Type:* <a href="#@containercraft/projen-pulumi-crd-sdks.PackageNames">PackageNames</a>
-
-Package names for the generated Pulumi SDKs.
-
----
-
-##### `crdUrls`<sup>Optional</sup> <a name="crdUrls" id="@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProjectOptions.property.crdUrls"></a>
+##### `crdUrls`<sup>Required</sup> <a name="crdUrls" id="@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProjectOptions.property.crdUrls"></a>
 
 ```typescript
 public readonly crdUrls: string[];
 ```
 
 - *Type:* string[]
+- *Default:* [ "https://raw.githubusercontent.com/cert-manager/cert-manager/${VERSION}/deploy/crds/certmanager.k8s.io_certificates.yaml" ]
 
 List of HTTPS URLs containing the ${VERSION} placeholder.
 
 ---
 
-##### `latestVersionOnBranch`<sup>Optional</sup> <a name="latestVersionOnBranch" id="@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProjectOptions.property.latestVersionOnBranch"></a>
+##### `latestVersionOnBranch`<sup>Required</sup> <a name="latestVersionOnBranch" id="@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProjectOptions.property.latestVersionOnBranch"></a>
 
 ```typescript
 public readonly latestVersionOnBranch: string;
 ```
 
 - *Type:* string
-- *Default:* : 1.0.0
+- *Default:* "1.0.0"
 
 Latest version of the SDKs released on this branch.
 
 This value shall be updated automatically by the project.
 This should be a semantic version (MAJOR.MINOR.PATCH), without a preceding 'v'.
+
+---
+
+##### `dotnetPackage`<sup>Optional</sup> <a name="dotnetPackage" id="@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProjectOptions.property.dotnetPackage"></a>
+
+```typescript
+public readonly dotnetPackage: DotnetPackageInfo;
+```
+
+- *Type:* <a href="#@containercraft/projen-pulumi-crd-sdks.DotnetPackageInfo">DotnetPackageInfo</a>
+
+.NET Nuget package details.
+
+---
+
+##### `goPackage`<sup>Optional</sup> <a name="goPackage" id="@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProjectOptions.property.goPackage"></a>
+
+```typescript
+public readonly goPackage: string;
+```
+
+- *Type:* string
+
+Go package details.
+
+---
+
+##### `javaPackage`<sup>Optional</sup> <a name="javaPackage" id="@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProjectOptions.property.javaPackage"></a>
+
+```typescript
+public readonly javaPackage: JavaPackageInfo;
+```
+
+- *Type:* <a href="#@containercraft/projen-pulumi-crd-sdks.JavaPackageInfo">JavaPackageInfo</a>
+
+Java package details.
+
+---
+
+##### `nodePackage`<sup>Optional</sup> <a name="nodePackage" id="@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProjectOptions.property.nodePackage"></a>
+
+```typescript
+public readonly nodePackage: NodePackageInfo;
+```
+
+- *Type:* <a href="#@containercraft/projen-pulumi-crd-sdks.NodePackageInfo">NodePackageInfo</a>
+
+NPM package details.
+
+---
+
+##### `pythonPackage`<sup>Optional</sup> <a name="pythonPackage" id="@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProjectOptions.property.pythonPackage"></a>
+
+```typescript
+public readonly pythonPackage: PythonPackageInfo;
+```
+
+- *Type:* <a href="#@containercraft/projen-pulumi-crd-sdks.PythonPackageInfo">PythonPackageInfo</a>
+
+Python package details.
 
 ---
 
@@ -1447,7 +1481,7 @@ const pythonPackageInfo: PythonPackageInfo = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@containercraft/projen-pulumi-crd-sdks.PythonPackageInfo.property.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@containercraft/projen-pulumi-crd-sdks.PythonPackageInfo.property.name">name</a></code> | <code>string</code> | Name of the Python package. |
 | <code><a href="#@containercraft/projen-pulumi-crd-sdks.PythonPackageInfo.property.prefix">prefix</a></code> | <code>string</code> | *No description.* |
 
 ---
@@ -1459,8 +1493,18 @@ public readonly name: string;
 ```
 
 - *Type:* string
+- *Default:* ""
+
+Name of the Python package.
 
 ---
+
+*Example*
+
+```typescript
+"cert_manager"
+```
+
 
 ##### `prefix`<sup>Optional</sup> <a name="prefix" id="@containercraft/projen-pulumi-crd-sdks.PythonPackageInfo.property.prefix"></a>
 
