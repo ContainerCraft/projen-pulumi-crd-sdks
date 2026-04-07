@@ -25,12 +25,12 @@ the archive created by `npm run build` in this project:
 
 ```shell
 cd dist/js
-ln -s projen-pulumi-crd-skds@0.0.0.jsii.tgz projen-pulumi-crd-skds.tgz
+ln -s projen-pulumi-crd-sdks@0.0.0.jsii.tgz projen-pulumi-crd-sdks.tgz
 ```
 
 In the project consuming this project type, you can now run `projen` pointing to the local archive:
 
 ```shell
 cd <path-to-consuming-project>
-projen new  --from <relative-path-to-project-type>/projen-pulumi-crd-skds.tgz
+projen new  --from <relative-path-to-project-type>/projen-pulumi-crd-sdks.tgz
 ```
