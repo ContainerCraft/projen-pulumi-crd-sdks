@@ -1,6 +1,5 @@
-import { License, Project, TextFile } from 'projen';
+import { License, Project, ProjenrcJson, TextFile } from 'projen';
 import { GitHub } from 'projen/lib/github';
-import { ProjenrcTs } from 'projen/lib/typescript';
 import * as github from './github';
 import { createMakefile } from './makefile';
 import { BuildTask } from './tasks';
@@ -39,8 +38,8 @@ export class PulumiCrdSdksProject extends Project {
       pullRequestLint: false,
     });
 
-    // Generate a `.projenrc.ts` file
-    new ProjenrcTs(this, {});
+    // Generate a `.projenrc.json` file
+    new ProjenrcJson(this, {});
 
     if (options.crdUrls?.length === 0) {
       throw new Error('crdUrls cannot be empty');

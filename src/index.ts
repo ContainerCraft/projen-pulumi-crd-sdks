@@ -4,7 +4,6 @@ export { createMakefile } from './makefile';
 export {
   PulumiCrdSdksProjectOptions,
   GithubRepository,
-  PackageNames,
   NodePackageInfo,
   PythonPackageInfo,
   DotnetPackageInfo,

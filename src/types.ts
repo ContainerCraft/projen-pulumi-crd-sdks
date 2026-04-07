@@ -1,46 +1,79 @@
 import { ProjectOptions } from 'projen';
 
 export interface NodePackageInfo {
+  /**
+   * Name of the NPM package.
+   *
+   * @example "cert-manager"
+   * @default ""
+   */
   readonly name: string;
   readonly namespace?: string;
 }
 
 export interface PythonPackageInfo {
+  /**
+   * Name of the Python package.
+   *
+   * @example "cert_manager"
+   * @default ""
+   */
   readonly name: string;
   readonly prefix?: string;
 }
 
 export interface DotnetPackageInfo {
+  /**
+   * Name of the .NET Nuget package.
+   *
+   * @example "CertManager"
+   * @default ""
+   */
   readonly name: string;
+
+  /**
+   * Namespace of the .NET Nuget package.
+   *
+   * @default ""
+   */
   readonly namespace?: string;
 }
 
 export interface JavaPackageInfo {
+  /**
+   * Name of the Java package.
+   *
+   * @example "certmanager"
+   * @default ""
+   */
   readonly name: string;
   readonly basePackage?: string;
-}
-
-export interface PackageNames {
-  readonly node: NodePackageInfo;
-  readonly python: PythonPackageInfo;
-  readonly dotnet: DotnetPackageInfo;
-  readonly go: string;
-  readonly java?: JavaPackageInfo;
 }
 
 /**
  * Github location of the upstream project to track for new releases.
  */
 export interface GithubRepository {
+  /**
+   * Github owner (user or organization) of the upstream project.
+   *
+   * @example "cert-manager"
+   * @default ""
+   */
   readonly owner: string;
+
+  /**
+   * Github repository of the upstream project.
+   *
+   * @example "cert-manager"
+   * @default ""
+   */
   readonly repository: string;
 }
 
 export interface PulumiCrdSdksProjectOptions extends ProjectOptions {
   /**
    * Github location of the upstream project to track for new releases.
-   *
-   * @featured
    */
   readonly upstreamProject?: GithubRepository;
 
@@ -48,22 +81,40 @@ export interface PulumiCrdSdksProjectOptions extends ProjectOptions {
    * Latest version of the SDKs released on this branch. This value shall be updated automatically by the project.
    * This should be a semantic version (MAJOR.MINOR.PATCH), without a preceding 'v'.
    *
-   * @featured
-   * @default: 1.0.0
+   * @default "1.0.0"
    */
-  readonly latestVersionOnBranch?: string;
+  readonly latestVersionOnBranch: string;
 
   /**
    * List of HTTPS URLs containing the ${VERSION} placeholder.
    *
-   * @featured
+   * @default [ "https://raw.githubusercontent.com/cert-manager/cert-manager/${VERSION}/deploy/crds/certmanager.k8s.io_certificates.yaml" ]
    */
-  readonly crdUrls?: string[];
+  readonly crdUrls: string[];
 
   /**
-   * Package names for the generated Pulumi SDKs.
-   *
-   * @featured
+   * NPM package details
    */
-  readonly packageNames: PackageNames;
+  readonly nodePackage?: NodePackageInfo;
+
+  /**
+   * Python package details
+   */
+  readonly pythonPackage?: PythonPackageInfo;
+
+  /**
+   * .NET Nuget package details
+   */
+  readonly dotnetPackage?: DotnetPackageInfo;
+
+  /**
+   * Go package details
+   */
+  readonly goPackage?: string;
+
+  /**
+   * Java package details
+   */
+  readonly javaPackage?: JavaPackageInfo;
+
 }

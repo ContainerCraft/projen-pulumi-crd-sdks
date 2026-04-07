@@ -8,5 +8,6 @@ export class BuildTask extends Component {
     project.removeTask('pre-compile');
     project.removeTask('post-compile');
     project.removeTask('test');
+    project.removeTask('package');
   }
 }

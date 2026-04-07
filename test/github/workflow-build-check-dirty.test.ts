@@ -1,28 +1,8 @@
 import * as projen from 'projen';
 import { synthSnapshot } from 'projen/lib/util/synth';
 
-import { PackageNames, PulumiCrdSdksProject } from '../../src';
+import { PulumiCrdSdksProject } from '../../src';
 import { WorkflowBuildCheckDirty } from '../../src/github';
-
-const packageNames: PackageNames = {
-  node: {
-    name: 'package',
-    namespace: 'owner',
-  },
-  python: {
-    name: 'package',
-    prefix: 'owner',
-  },
-  dotnet: {
-    name: 'Package',
-    namespace: 'Owner',
-  },
-  go: 'example',
-  java: {
-    name: 'crdpackage',
-    basePackage: 'com.owner',
-  },
-};
 
 describe('WorkflowBuildCheckDirty', () => {
 
@@ -199,7 +179,29 @@ describe('WorkflowBuildCheckDirty', () => {
     const project = new PulumiCrdSdksProject({
       name: 'pulumi-k8s-test',
       crdUrls: ['https://example.com/crds.yaml'],
-      packageNames: packageNames,
+      upstreamProject: {
+        owner: 'cert-manager',
+        repository: 'cert-manager',
+      },
+      latestVersionOnBranch: '1.0.0',
+      nodePackage: {
+        name: 'package',
+        namespace: 'owner',
+      },
+      pythonPackage: {
+        name: 'package',
+        prefix: 'owner',
+      },
+      dotnetPackage: {
+        name: 'Package',
+        namespace: 'Owner',
+      },
+      goPackage: 'example',
+      javaPackage: {
+        name: 'crdpackage',
+        basePackage: 'com.owner',
+      },
+
     });
 
     // WHEN
