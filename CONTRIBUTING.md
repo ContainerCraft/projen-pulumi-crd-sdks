@@ -2,7 +2,7 @@
 
 Thanks for your interest in contributing to this projen project type! ❤️
 
-This document describes how to set up a development environment and submit your contributions. Please read it carefully and let us know if it's not up-to date (or even better, submit a pull request with your corrections! 😉).
+This document describes how to set up a development environment and submit your contributions. Please read it carefully and let us know if it's not up-to-date (or even better, submit a pull request with your corrections! 😉).
 
 ## Prerequisites
 
