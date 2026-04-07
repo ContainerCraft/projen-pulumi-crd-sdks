@@ -32,7 +32,7 @@ following steps:
      "latestVersionOnBranch": "1.0.0",
      "upstreamProject": {
        "owner": "<github-user-or-org>",
-       "repo": "<github-repository>"
+       "repository": "<github-repository>"
      },
      "crdUrls": [
        "https://raw.githubusercontent.com/<github-user-or-org>/<github-repository>/${VERSION}/<path>/<crd-schema-file>.yaml"
