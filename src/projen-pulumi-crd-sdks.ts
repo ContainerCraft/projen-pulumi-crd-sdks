@@ -15,6 +15,7 @@ export class PulumiCrdSdksProject extends Project {
       ...options,
       projenrcJson: true,
       projectTree: true,
+      renovatebot: false, // Explicitly disable RenovateBot because UpdateCLI will be used.
     });
 
     const projectIdentifiers = options.crdUrls?.map((url) => {
