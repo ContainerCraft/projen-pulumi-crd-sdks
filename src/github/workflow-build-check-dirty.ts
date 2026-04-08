@@ -24,12 +24,17 @@ export class WorkflowBuildCheckDirty extends projen.Component {
 
     const installMise = {
       name: 'Install mise',
-      uses: 'jdx/mise-action@v2',
+      uses: 'jdx/mise-action@v4',
     };
 
     const installTools = {
       name: 'Install tools',
       run: 'mise install',
+    };
+
+    const clean = {
+      name: 'Clean',
+      run: 'make clean',
     };
 
     const build = {
@@ -53,9 +58,10 @@ export class WorkflowBuildCheckDirty extends projen.Component {
         contents: JobPermission.READ,
       },
       steps: [
-        { name: 'Checkout', uses: 'actions/checkout@v4' },
+        { name: 'Checkout', uses: 'actions/checkout@v6' },
         installMise,
         installTools,
+        clean,
         build,
         checkClean,
         failOnChanges,

@@ -35,7 +35,7 @@ describe('WorkflowBuildCheckDirty', () => {
 
     // THEN
     expect(workflow).toContain('Install mise');
-    expect(workflow).toContain('uses: jdx/mise-action@v2');
+    expect(workflow).toContain('uses: jdx/mise-action@v4');
     expect(workflow).toContain('Install tools');
     expect(workflow).toContain('mise install');
   });
@@ -124,7 +124,7 @@ describe('WorkflowBuildCheckDirty', () => {
 
     // THEN
     expect(workflow).toContain('Checkout');
-    expect(workflow).toContain('actions/checkout@v4');
+    expect(workflow).toContain('actions/checkout@v6');
   });
 
   test('has correct job permissions', () => {
