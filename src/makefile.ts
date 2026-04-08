@@ -58,7 +58,7 @@ export function createMakefile(project: Project, options: PulumiCrdSdksProjectOp
   makefile.addLine(`\tcrd2pulumi --python --pythonPath $(SDK_DIR)/python --pythonName $(PACKAGE_NAME_PYTHON) ${options.pythonPackage?.prefix ? '--pythonPackagePrefix $(PACKAGE_PREFIX_PYTHON)' : ''} --version $(VERSION) $(CRD_FILES)`);
   makefile.addLine('');
   makefile.addLine('build-dotnet: download');
-  makefile.addLine(`\tcrd2pulumi --dotnet --dotnetPath $(SDK_DIR)/dotnet --dotnetName $(PACKAGE_NAME_PYTHON) ${options.dotnetPackage?.namespace ? '--dotnetNamespace $(PACKAGE_NAMESPACE_DOTNET)' : ''} --version $(VERSION) $(CRD_FILES)`);
+  makefile.addLine(`\tcrd2pulumi --dotnet --dotnetPath $(SDK_DIR)/dotnet --dotnetName $(PACKAGE_NAME_DOTNET) ${options.dotnetPackage?.namespace ? '--dotnetNamespace $(PACKAGE_NAMESPACE_DOTNET)' : ''} --version $(VERSION) $(CRD_FILES)`);
   makefile.addLine('');
   makefile.addLine('build-go: download');
   makefile.addLine('\tcrd2pulumi --go --goPath $(SDK_DIR)/go --goName $(PACKAGE_NAME_GO) --version $(VERSION) $(CRD_FILES)');
