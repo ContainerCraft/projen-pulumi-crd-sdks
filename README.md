@@ -42,8 +42,8 @@ following steps:
        "namespace": "<your-npm-namespace-optional>"
      },
      "pythonPackage": {
-       "name": "<your-python-package-name>",
-       "prefix": "<your-python-package-prefix-optional>"
+       "name": "<your_python_package_name>",
+       "prefix": "<your_python_package_prefix_optional>"
      },
      "goPackage": "github.com/<github-user-or-org>/<github-repository>/sdk/go/v<version>",
      "dotnetPackage": {
@@ -56,6 +56,7 @@ following steps:
      }
    }
    ```
+   **Note:** The Python package name must be written with underscores instead of hyphens.
 4. Replace the placeholders in the template with the appropriate values.
 5. Create the file `.projen/tasks.json` with the following content:
    ```json

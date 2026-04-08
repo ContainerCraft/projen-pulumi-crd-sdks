@@ -1,4 +1,4 @@
-import { License, Project, ProjenrcJson, TextFile } from 'projen';
+import { License, Project, TextFile } from 'projen';
 import { GitHub } from 'projen/lib/github';
 import * as github from './github';
 import { createMakefile } from './makefile';
@@ -11,7 +11,11 @@ export class PulumiCrdSdksProject extends Project {
   private readonly github: GitHub;
 
   constructor(options: PulumiCrdSdksProjectOptions) {
-    super(options);
+    super({
+      ...options,
+      projenrcJson: true,
+      projectTree: true,
+    });
 
     const projectIdentifiers = options.crdUrls?.map((url) => {
       try {
@@ -37,9 +41,6 @@ export class PulumiCrdSdksProject extends Project {
       mergify: false,
       pullRequestLint: false,
     });
-
-    // Generate a `.projenrc.json` file
-    new ProjenrcJson(this, {});
 
     if (options.crdUrls?.length === 0) {
       throw new Error('crdUrls cannot be empty');
