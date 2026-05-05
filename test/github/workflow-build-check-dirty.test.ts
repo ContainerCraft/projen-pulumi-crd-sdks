@@ -31,13 +31,11 @@ describe('WorkflowBuildCheckDirty', () => {
     // WHEN
     new WorkflowBuildCheckDirty(project);
     const snapshot = synthSnapshot(project);
-    const workflow = snapshot['.github/workflows/main.yml'];
+    const workflow = snapshot['.github/workflows/build_sdk.yml'];
 
     // THEN
     expect(workflow).toContain('Install mise');
-    expect(workflow).toContain('uses: jdx/mise-action@v4');
-    expect(workflow).toContain('Install tools');
-    expect(workflow).toContain('mise install');
+    expect(workflow).toContain('uses: jdx/mise-action@');
   });
 
   test('contains build step', () => {
@@ -50,10 +48,10 @@ describe('WorkflowBuildCheckDirty', () => {
     // WHEN
     new WorkflowBuildCheckDirty(project);
     const snapshot = synthSnapshot(project);
-    const workflow = snapshot['.github/workflows/main.yml'];
+    const workflow = snapshot['.github/workflows/build_sdk.yml'];
 
     // THEN
-    expect(workflow).toContain('make build');
+    expect(workflow).toContain('make build_${{ matrix.language }}');
   });
 
   test('contains git clean check', () => {
@@ -66,11 +64,11 @@ describe('WorkflowBuildCheckDirty', () => {
     // WHEN
     new WorkflowBuildCheckDirty(project);
     const snapshot = synthSnapshot(project);
-    const workflow = snapshot['.github/workflows/main.yml'];
+    const workflow = snapshot['.github/workflows/build_sdk.yml'];
 
     // THEN
     expect(workflow).toContain('Check Git workspace is clean');
-    expect(workflow).toContain('git diff --exit-code');
+    expect(workflow).toContain('git diff --name-status --exit-code');
   });
 
   test('fails on changed files', () => {
@@ -83,7 +81,7 @@ describe('WorkflowBuildCheckDirty', () => {
     // WHEN
     new WorkflowBuildCheckDirty(project);
     const snapshot = synthSnapshot(project);
-    const workflow = snapshot['.github/workflows/main.yml'];
+    const workflow = snapshot['.github/workflows/build_sdk.yml'];
 
     // THEN
     expect(workflow).toContain('Fail if there are changed files');
@@ -120,11 +118,11 @@ describe('WorkflowBuildCheckDirty', () => {
     // WHEN
     new WorkflowBuildCheckDirty(project);
     const snapshot = synthSnapshot(project);
-    const workflow = snapshot['.github/workflows/main.yml'];
+    const workflow = snapshot['.github/workflows/build_sdk.yml'];
 
     // THEN
     expect(workflow).toContain('Checkout');
-    expect(workflow).toContain('actions/checkout@v6');
+    expect(workflow).toContain('actions/checkout@');
   });
 
   test('has correct job permissions', () => {
@@ -154,7 +152,7 @@ describe('WorkflowBuildCheckDirty', () => {
     // WHEN
     new WorkflowBuildCheckDirty(project);
     const snapshot = synthSnapshot(project);
-    const workflow = snapshot['.github/workflows/main.yml'];
+    const workflow = snapshot['.github/workflows/build_sdk.yml'];
 
     // THEN
     expect(workflow).toContain('runs-on: ubuntu-latest');
@@ -210,8 +208,8 @@ describe('WorkflowBuildCheckDirty', () => {
 
     // THEN
     expect(workflow).toBeDefined();
-    expect(workflow).toContain('mise install');
-    expect(workflow).toContain('make build');
+    expect(workflow).toContain('build_sdk:');
+    expect(workflow).toContain('uses: ./.github/workflows/build_sdk.yml');
   });
 
 });

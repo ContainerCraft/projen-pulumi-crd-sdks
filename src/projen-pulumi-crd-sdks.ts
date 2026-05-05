@@ -1,4 +1,4 @@
-import { License, Project, TextFile } from 'projen';
+import { IgnoreFile, License, Project, TextFile } from 'projen';
 import { GitHub } from 'projen/lib/github';
 import * as github from './github';
 import { createMakefile } from './makefile';
@@ -55,13 +55,36 @@ export class PulumiCrdSdksProject extends Project {
 
     new TextFile(this, 'mise.toml', {
       lines: [
+        '[plugins]',
+        'vfox-pulumi = "https://github.com/pulumi/vfox-pulumi"',
+        '',
+        '[env]',
+        '_.vfox-pulumi = { module_path = "sdk" } # Sets GO_VERSION_MISE and PULUMI_VERSION_MISE',
+        '',
         '[tools]',
+        'go = "{{ env.GO_VERSION_MISE }}"',
         "'github:pulumi/crd2pulumi' = '1.6.1'",
+        '"vfox:version-fox/vfox-dotnet" = "8.0.20"',
+        '',
       ],
     });
 
     new github.WorkflowBuildCheckDirty(this);
     new BuildTask(this);
     createMakefile(this, options);
+
+    this.gitattributes.addAttributes('sdk/**/*', 'linguist-generated=true');
+
+    this.gitignore.exclude('package-lock.json');
+    this.gitignore.exclude('.make');
+
+    const sdkIgnore = new IgnoreFile(this, 'sdk/.gitignore');
+    sdkIgnore.exclude('/nodejs/bin/');
+    sdkIgnore.exclude('/nodejs/dist/');
+    sdkIgnore.exclude('/nodejs/node_modules/');
+    sdkIgnore.exclude('/python/bin');
+    sdkIgnore.exclude('/python/venv');
+    sdkIgnore.exclude('/python/*.egg-info');
+    sdkIgnore.exclude('__pycache__');
   }
 }

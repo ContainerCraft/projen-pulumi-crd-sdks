@@ -23,7 +23,7 @@ possible yet to perform the initialization in a single step. You will need to pe
 following steps:
 
 1. Create a new directory for your project and navigate into it.
-2. Run `npx projen new npx projen new --from @containercraft/projen-pulumi-crd-sdks --synth=false --no-git` .
+2. Run `npx projen new --from @containercraft/projen-pulumi-crd-sdks --synth=false --no-git` .
 3. Now paste the following template over your `.projenrc.json` file:
    ```json
    {
