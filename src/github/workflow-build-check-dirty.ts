@@ -72,13 +72,13 @@ export class WorkflowBuildCheckDirty extends projen.Component {
       },
     );
 
-    const buildSdk = github.addWorkflow('build_sdk');
-
-    buildSdk.name = 'Build SDK';
-
-    buildSdk.on({
-      workflowCall: {},
-    });
+    const checkOut = {
+      name: 'Checkout',
+      uses: 'actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8',
+      with: {
+        'persist-credentials': false,
+      },
+    };
 
     const installMise = {
       name: 'Install mise',
@@ -92,6 +92,84 @@ export class WorkflowBuildCheckDirty extends projen.Component {
         cache_save: false,
       },
     };
+
+    const checkUpstreamVersions = github.addWorkflow('check_upstream_versions');
+    checkUpstreamVersions.name = 'check-upstream-versions';
+
+    checkUpstreamVersions.on({
+      schedule: [
+        {
+          cron: '0 1 * * *',
+        },
+      ],
+      workflowDispatch: {},
+    });
+
+    checkUpstreamVersions.addJob('check-for-new-upstream-version', {
+      runsOn: ['ubuntu-latest'],
+      permissions: {
+        contents: 'write',
+        pullRequests: 'write',
+        idTokens: 'write',
+      },
+      steps: [
+        checkOut,
+        installMise,
+        {
+          name: 'Read latest version from .projenrc.json',
+          uses: 'emptylight370/jq-action@v1.2.0',
+          id: 'latest_version_from_projenrc',
+          with: {
+            data: '.projenrc.json',
+            filter: '.latestVersionOnBranch',
+          },
+        },
+        {
+          name: 'Login to Repoflow Registry',
+          run: 'docker login -u ringods -p ${{ secrets.PAT_REPOFLOW }} api.repoflow.io',
+        },
+        {
+          name: 'Check for a new version in the upstream repository',
+          id: 'tag-replay',
+          uses: 'ContainerCraft/git-tag-replay@04f45e2b0ae278b60ab4e3a09402b073752998d4',
+          with: {
+            upstream_owner: 'cert-manager',
+            upstream_repository: 'cert-manager',
+            upstream_token: '${{ secrets.GITHUB_TOKEN }}',
+            token: '${{ secrets.GITHUB_TOKEN }}',
+            minimum_version: '${{ steps.latest_version_from_projenrc.outputs.result }}',
+          },
+        },
+        {
+          name: 'Install UpdateCLI in the runner',
+          uses: 'updatecli/updatecli-action@af341a800cdbcde3ddcebb7a62410ac06a78a207',
+        },
+        {
+          name: 'Run Updatecli in Dry Run mode',
+          run: 'updatecli compose diff',
+          env: {
+            NEXT_VERSION: '${{ steps.tag-replay.outputs.nextTag }}',
+            UPDATECLI_GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}',
+          },
+        },
+        {
+          name: 'Run Updatecli in Apply mode',
+          run: 'updatecli compose apply',
+          env: {
+            NEXT_VERSION: '${{ steps.tag-replay.outputs.nextTag }}',
+            UPDATECLI_GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}',
+          },
+        },
+      ],
+    });
+
+    const buildSdk = github.addWorkflow('build_sdk');
+
+    buildSdk.name = 'Build SDK';
+
+    buildSdk.on({
+      workflowCall: {},
+    });
 
     const clean = {
       name: 'Clean SDK',
@@ -150,13 +228,7 @@ export class WorkflowBuildCheckDirty extends projen.Component {
         },
       },
       steps: [
-        {
-          name: 'Checkout',
-          uses: 'actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8',
-          with: {
-            'persist-credentials': false,
-          },
-        },
+        checkOut,
         installMise,
         setupGoCache,
         clean,
@@ -181,13 +253,7 @@ export class WorkflowBuildCheckDirty extends projen.Component {
         contents: 'write',
       },
       steps: [
-        {
-          name: 'Checkout',
-          uses: 'actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8',
-          with: {
-            'persist-credentials': false,
-          },
-        },
+        checkOut,
         installMise,
         {
           name: 'Download Node SDK',
