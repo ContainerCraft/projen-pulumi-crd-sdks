@@ -4,6 +4,7 @@ import * as github from './github';
 import { createMakefile } from './makefile';
 import { BuildTask } from './tasks';
 import { PulumiCrdSdksProjectOptions } from './types';
+import { createUpdateCliConfig } from './updatecli';
 
 
 export class PulumiCrdSdksProject extends Project {
@@ -72,6 +73,7 @@ export class PulumiCrdSdksProject extends Project {
     new github.WorkflowBuildCheckDirty(this);
     new BuildTask(this);
     createMakefile(this, options);
+    createUpdateCliConfig(this, options);
 
     this.gitattributes.addAttributes('sdk/**/*', 'linguist-generated=true');
 
