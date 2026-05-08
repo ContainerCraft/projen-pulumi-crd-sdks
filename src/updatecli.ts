@@ -50,5 +50,5 @@ export function createUpdateCliConfig(project: Project, options: PulumiCrdSdksPr
   valuesUpstreamFile.addOverride('upstream.repository', options.upstreamProject?.repository);
   valuesUpstreamFile.addOverride('upstream.env_token', 'UPDATECLI_GITHUB_TOKEN');
 
-  return [valuesUpstreamFile, valuesUpstreamFile, valuesUpstreamFile];
+  return [composeFile, valuesScmFile, valuesUpstreamFile];
 }
