@@ -110,7 +110,7 @@ export class WorkflowBuildCheckDirty extends projen.Component {
       permissions: {
         contents: 'write',
         pullRequests: 'write',
-        idTokens: 'write',
+        idToken: 'write',
       },
       steps: [
         checkOut,
