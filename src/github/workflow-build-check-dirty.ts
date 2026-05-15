@@ -131,13 +131,14 @@ export class WorkflowBuildCheckDirty extends projen.Component {
         {
           name: 'Check for a new version in the upstream repository',
           id: 'tag-replay',
-          uses: 'ContainerCraft/git-tag-replay@04f45e2b0ae278b60ab4e3a09402b073752998d4',
+          uses: 'ContainerCraft/git-tag-replay@55ee55afb4ffed33aa2662d3e25d5253cf0a7809',
           with: {
-            upstream_owner: 'cert-manager',
-            upstream_repository: 'cert-manager',
-            upstream_token: '${{ secrets.GITHUB_TOKEN }}',
-            token: '${{ secrets.GITHUB_TOKEN }}',
-            minimum_version: '${{ steps.latest_version_from_projenrc.outputs.result }}',
+            'upstream_owner': 'cert-manager',
+            'upstream_repository': 'cert-manager',
+            'client-id': '${{ secrets.CRD_GH_CLIENT_ID }}',
+            'private-key': '${{ secrets.CRD_GH_PRIVATE_KEY }}',
+            'installation-id': '${{ secrets.CRD_GH_INSTALLATION_ID }}',
+            'minimum_version': '${{ steps.latest_version_from_projenrc.outputs.result }}',
           },
         },
         {
@@ -149,7 +150,9 @@ export class WorkflowBuildCheckDirty extends projen.Component {
           run: 'updatecli compose diff',
           env: {
             NEXT_VERSION: '${{ steps.tag-replay.outputs.nextTag }}',
-            UPDATECLI_GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}',
+            UPDATECLI_GITHUB_APP_CLIENT_ID: '${{ secrets.CRD_GH_CLIENT_ID }}',
+            UPDATECLI_GITHUB_APP_PRIVATE_KEY: '${{ secrets.CRD_GH_PRIVATE_KEY }}',
+            UPDATECLI_GITHUB_APP_INSTALLATION_ID: '${{ secrets.CRD_GH_INSTALLATION_ID }}',
           },
         },
         {
@@ -157,7 +160,9 @@ export class WorkflowBuildCheckDirty extends projen.Component {
           run: 'updatecli compose apply',
           env: {
             NEXT_VERSION: '${{ steps.tag-replay.outputs.nextTag }}',
-            UPDATECLI_GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}',
+            UPDATECLI_GITHUB_APP_CLIENT_ID: '${{ secrets.CRD_GH_CLIENT_ID }}',
+            UPDATECLI_GITHUB_APP_PRIVATE_KEY: '${{ secrets.CRD_GH_PRIVATE_KEY }}',
+            UPDATECLI_GITHUB_APP_INSTALLATION_ID: '${{ secrets.CRD_GH_INSTALLATION_ID }}',
           },
         },
       ],

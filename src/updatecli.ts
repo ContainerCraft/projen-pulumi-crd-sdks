@@ -14,7 +14,7 @@ export function createUpdateCliConfig(project: Project, options: PulumiCrdSdksPr
   composeFile.addToArray('policies',
     {
       name: 'Update upstream CRD version',
-      policy: 'api.repoflow.io/hardes/updatecli-policies/containercraft/crd-pulumi-sdk:0.0.6',
+      policy: 'api.repoflow.io/hardes/updatecli-policies/containercraft/crd-pulumi-sdk:0.0.7',
       values: [
         'updatecli/values.d/scm.yaml',
         'updatecli/values.d/upstream.yaml',
@@ -34,7 +34,6 @@ export function createUpdateCliConfig(project: Project, options: PulumiCrdSdksPr
   valuesScmFile.addOverride('scm.owner', 'experimentale');
   valuesScmFile.addOverride('scm.repository', 'pulumi-crd-certmanager');
   valuesScmFile.addOverride('scm.username', 'ringods');
-  valuesScmFile.addOverride('scm.env_token', 'UPDATECLI_GITHUB_TOKEN');
   valuesScmFile.addOverride('scm.branch', 'main');
 
   const valuesUpstreamFile = new YamlFile(
@@ -48,7 +47,6 @@ export function createUpdateCliConfig(project: Project, options: PulumiCrdSdksPr
   valuesUpstreamFile.addOverride('upstream.kind', 'github');
   valuesUpstreamFile.addOverride('upstream.owner', options.upstreamProject?.owner);
   valuesUpstreamFile.addOverride('upstream.repository', options.upstreamProject?.repository);
-  valuesUpstreamFile.addOverride('upstream.env_token', 'UPDATECLI_GITHUB_TOKEN');
 
   return [composeFile, valuesScmFile, valuesUpstreamFile];
 }
