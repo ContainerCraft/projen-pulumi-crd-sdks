@@ -14,7 +14,7 @@ export function createUpdateCliConfig(project: Project, options: PulumiCrdSdksPr
   composeFile.addToArray('policies',
     {
       name: 'Update upstream CRD version',
-      policy: 'api.repoflow.io/hardes/updatecli-policies/containercraft/crd-pulumi-sdk:0.0.7',
+      policy: 'api.repoflow.io/hardes/updatecli-policies/containercraft/crd-pulumi-sdk:0.0.9',
       values: [
         'updatecli/values.d/scm.yaml',
         'updatecli/values.d/upstream.yaml',
