@@ -54,7 +54,7 @@ export class PulumiCrdSdksProject extends Project {
       copyrightPeriod: '2025-2026',
     });
 
-    new TextFile(this, 'mise.toml', {
+    new TextFile(this, '.config/mise.toml', {
       lines: [
         '[plugins]',
         'vfox-pulumi = "https://github.com/pulumi/vfox-pulumi"',
@@ -64,7 +64,7 @@ export class PulumiCrdSdksProject extends Project {
         '',
         '[tools]',
         'go = "{{ env.GO_VERSION_MISE }}"',
-        "'github:pulumi/crd2pulumi' = '1.6.1'",
+        "'github:pulumi/crd2pulumi' = '1.6.2'",
         '"vfox:version-fox/vfox-dotnet" = "8.0.20"',
         '',
       ],
