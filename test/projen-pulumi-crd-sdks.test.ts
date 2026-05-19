@@ -39,7 +39,7 @@ describe('PulumiCrdSdksProject', () => {
     const snapshot = synthSnapshot(project);
 
     // THEN
-    expect(snapshot['mise.toml']).toBe(`[plugins]
+    expect(snapshot['.config/mise.toml']).toBe(`[plugins]
 vfox-pulumi = "https://github.com/pulumi/vfox-pulumi"
 
 [env]
@@ -47,7 +47,7 @@ _.vfox-pulumi = { module_path = "sdk" } # Sets GO_VERSION_MISE and PULUMI_VERSIO
 
 [tools]
 go = "{{ env.GO_VERSION_MISE }}"
-'github:pulumi/crd2pulumi' = '1.6.1'
+'github:pulumi/crd2pulumi' = '1.6.2'
 "vfox:version-fox/vfox-dotnet" = "8.0.20"
 `,
     );
