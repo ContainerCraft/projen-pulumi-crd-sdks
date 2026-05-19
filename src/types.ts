@@ -73,6 +73,11 @@ export interface GithubRepository {
 
 export interface PulumiCrdSdksProjectOptions extends ProjectOptions {
   /**
+   * Github location of the local project which will contain the generated SDKs.
+   */
+  readonly localProject?: GithubRepository;
+
+  /**
    * Github location of the upstream project to track for new releases.
    */
   readonly upstreamProject?: GithubRepository;

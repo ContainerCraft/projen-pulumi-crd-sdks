@@ -31,8 +31,8 @@ export function createUpdateCliConfig(project: Project, options: PulumiCrdSdksPr
     },
   );
   valuesScmFile.addOverride('scm.kind', 'github');
-  valuesScmFile.addOverride('scm.owner', 'experimentale');
-  valuesScmFile.addOverride('scm.repository', 'pulumi-crd-certmanager');
+  valuesScmFile.addOverride('scm.owner', options.localProject?.owner);
+  valuesScmFile.addOverride('scm.repository', options.localProject?.repository);
   valuesScmFile.addOverride('scm.username', 'ringods');
   valuesScmFile.addOverride('scm.branch', 'main');
 

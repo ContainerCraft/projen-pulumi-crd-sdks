@@ -1186,6 +1186,7 @@ const pulumiCrdSdksProjectOptions: PulumiCrdSdksProjectOptions = { ... }
 | <code><a href="#@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProjectOptions.property.dotnetPackage">dotnetPackage</a></code> | <code><a href="#@containercraft/projen-pulumi-crd-sdks.DotnetPackageInfo">DotnetPackageInfo</a></code> | .NET Nuget package details. |
 | <code><a href="#@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProjectOptions.property.goPackage">goPackage</a></code> | <code>string</code> | Go package details. |
 | <code><a href="#@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProjectOptions.property.javaPackage">javaPackage</a></code> | <code><a href="#@containercraft/projen-pulumi-crd-sdks.JavaPackageInfo">JavaPackageInfo</a></code> | Java package details. |
+| <code><a href="#@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProjectOptions.property.localProject">localProject</a></code> | <code><a href="#@containercraft/projen-pulumi-crd-sdks.GithubRepository">GithubRepository</a></code> | Github location of the local project which will contain the generated SDKs. |
 | <code><a href="#@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProjectOptions.property.nodePackage">nodePackage</a></code> | <code><a href="#@containercraft/projen-pulumi-crd-sdks.NodePackageInfo">NodePackageInfo</a></code> | NPM package details. |
 | <code><a href="#@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProjectOptions.property.pythonPackage">pythonPackage</a></code> | <code><a href="#@containercraft/projen-pulumi-crd-sdks.PythonPackageInfo">PythonPackageInfo</a></code> | Python package details. |
 | <code><a href="#@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProjectOptions.property.upstreamProject">upstreamProject</a></code> | <code><a href="#@containercraft/projen-pulumi-crd-sdks.GithubRepository">GithubRepository</a></code> | Github location of the upstream project to track for new releases. |
@@ -1428,6 +1429,18 @@ public readonly javaPackage: JavaPackageInfo;
 - *Type:* <a href="#@containercraft/projen-pulumi-crd-sdks.JavaPackageInfo">JavaPackageInfo</a>
 
 Java package details.
+
+---
+
+##### `localProject`<sup>Optional</sup> <a name="localProject" id="@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProjectOptions.property.localProject"></a>
+
+```typescript
+public readonly localProject: GithubRepository;
+```
+
+- *Type:* <a href="#@containercraft/projen-pulumi-crd-sdks.GithubRepository">GithubRepository</a>
+
+Github location of the local project which will contain the generated SDKs.
 
 ---
 

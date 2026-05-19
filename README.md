@@ -41,6 +41,10 @@ following steps:
      "type": "@containercraft/projen-pulumi-crd-sdks.PulumiCrdSdksProject",
      "name": "<your-project-name>",
      "latestVersionOnBranch": "1.0.0",
+     "localProject": {
+       "owner": "<github-user-or-org>",
+       "repository": "<github-repository>"
+     },
      "upstreamProject": {
        "owner": "<github-user-or-org>",
        "repository": "<github-repository>"
