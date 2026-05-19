@@ -125,10 +125,6 @@ export class WorkflowBuildCheckDirty extends projen.Component {
           },
         },
         {
-          name: 'Login to Repoflow Registry',
-          run: 'docker login -u ringods -p ${{ secrets.PAT_REPOFLOW }} api.repoflow.io',
-        },
-        {
           name: 'Check for a new version in the upstream repository',
           id: 'tag-replay',
           uses: 'ContainerCraft/git-tag-replay@55ee55afb4ffed33aa2662d3e25d5253cf0a7809',
