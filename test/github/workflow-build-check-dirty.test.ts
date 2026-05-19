@@ -177,6 +177,10 @@ describe('WorkflowBuildCheckDirty', () => {
     const project = new PulumiCrdSdksProject({
       name: 'pulumi-k8s-test',
       crdUrls: ['https://example.com/crds.yaml'],
+      localProject: {
+        owner: 'experimentale',
+        repository: 'pulumi-crd-certmanager',
+      },
       upstreamProject: {
         owner: 'cert-manager',
         repository: 'cert-manager',
@@ -205,11 +209,14 @@ describe('WorkflowBuildCheckDirty', () => {
     // WHEN
     const snapshot = synthSnapshot(project);
     const workflow = snapshot['.github/workflows/main.yml'];
+    const updatecli = snapshot['updatecli/values.d/scm.yaml'];
 
     // THEN
     expect(workflow).toBeDefined();
     expect(workflow).toContain('build_sdk:');
     expect(workflow).toContain('uses: ./.github/workflows/build_sdk.yml');
+    expect(updatecli).toContain('owner: experimentale');
+    expect(updatecli).toContain('repository: pulumi-crd-certmanager');
   });
 
 });
