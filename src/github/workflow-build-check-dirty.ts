@@ -169,7 +169,15 @@ export class WorkflowBuildCheckDirty extends projen.Component {
     buildSdk.name = 'Build SDK';
 
     buildSdk.on({
-      workflowCall: {},
+      workflowCall: {
+        inputs: {
+          retain: {
+            description: 'Whether or not to retain intermediate build artifacts',
+            default: 'false',
+            type: 'boolean',
+          },
+        },
+      },
     });
 
     const clean = {
@@ -339,6 +347,9 @@ export class WorkflowBuildCheckDirty extends projen.Component {
         contents: 'read',
       },
       uses: './.github/workflows/build_sdk.yml',
+      with: {
+        retain: 'true',
+      },
       secrets: 'inherit',
     });
     release.addJob('publish', {
