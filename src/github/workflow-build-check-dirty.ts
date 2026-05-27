@@ -348,7 +348,7 @@ export class WorkflowBuildCheckDirty extends projen.Component {
       },
       uses: './.github/workflows/build_sdk.yml',
       with: {
-        retain: 'true',
+        retain: true,
       },
       secrets: 'inherit',
     });
