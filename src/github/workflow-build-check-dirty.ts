@@ -212,6 +212,7 @@ export class WorkflowBuildCheckDirty extends projen.Component {
 
     const uploadSdk = {
       name: 'Upload SDK',
+      if: '${{ inputs.retain }}',
       uses: './.github/actions/upload-sdk',
       with: {
         language: '${{ matrix.language }}',
