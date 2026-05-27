@@ -53,7 +53,7 @@ export function createMakefile(project: Project, options: PulumiCrdSdksProjectOp
   makefile.addLine('\tmkdir -p $(CRD_DIR)');
   makefile.addLine('');
   makefile.addLine('$(CRD_DIR)/%.yaml: | $(CRD_DIR)');
-  makefile.addLine('\tcurl -sL -o $@ $(subst $(CRD_DIR)/,https://github.com/cert-manager/cert-manager/raw/refs/tags/v$(VERSION)/deploy/crds/,$@)');
+  makefile.addLine('\tcurl -sL -o $@ $(filter %/$(notdir $@),$(CRD_URLS))');
   makefile.addLine('');
 
   makefile.addLine('generate_nodejs: .make/generate_nodejs');
