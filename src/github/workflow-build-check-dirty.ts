@@ -173,7 +173,7 @@ export class WorkflowBuildCheckDirty extends projen.Component {
         inputs: {
           retain: {
             description: 'Whether or not to retain intermediate build artifacts',
-            default: 'false',
+            default: false,
             type: 'boolean',
           },
         },
